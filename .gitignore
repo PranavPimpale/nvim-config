@@ -1,0 +1,14 @@
+# Nvim cache
+plugin/
+pack/
+
+# LSP logs
+lsp.log
+
+# Swap/backup/session
+*.swp
+*.bak
+*.session
+
+# Lazy.nvim downloaded plugins
+lazy-lock.json
