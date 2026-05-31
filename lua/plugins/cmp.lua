@@ -70,14 +70,14 @@ return {
             end
           end, { "i", "s" }),
 
-          ["<C-l>"] = cmp.mapping(function()
+          ["<C-n>"] = cmp.mapping(function()
             local luasnip = require("luasnip")
             if luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
             end
           end, { "i", "s" }),
 
-          ["<C-h>"] = cmp.mapping(function()
+          ["<C-v>"] = cmp.mapping(function()
             local luasnip = require("luasnip")
             if luasnip.jumpable(-1) then
               luasnip.jump(-1)
