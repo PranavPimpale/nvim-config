@@ -59,3 +59,18 @@ vim.keymap.set('i', '<C-h>', '<Left>',  { noremap = true, silent = true })
 vim.keymap.set('i', '<C-j>', '<Down>',  { noremap = true, silent = true })
 vim.keymap.set('i', '<C-k>', '<Up>',    { noremap = true, silent = true })
 vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
+
+-- 3 sec timout for the update/save message below the lualine
+vim.opt.showmode = false
+local group = vim.api.nvim_create_augroup("ClearMessages", { clear = true })
+
+vim.api.nvim_create_autocmd({ "BufWritePost", "ModeChanged" }, {
+  group = group,
+  callback = function()
+    vim.defer_fn(function()
+      if vim.api.nvim_get_mode().mode ~= "c" then
+        vim.cmd("echo ''")
+      end
+    end, 3000) -- 3 seconds
+  end,
+})
