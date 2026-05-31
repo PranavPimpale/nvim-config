@@ -12,67 +12,104 @@ local colors = {
 
 local bubbles_theme = {
   normal = {
-    a = { fg = colors.red, bg = colors.grey },
-    b = { fg = colors.white, bg = colors.grey },
+    a = { fg = colors.white, bg = colors.grey },
+    b = { fg = colors.red, bg = colors.grey },
     c = { fg = colors.white },
+
+    x = { fg = colors.white, bg = colors.grey },
   },
 
-  insert = { a = { fg = colors.green, bg = colors.grey } },
-  visual = { a = { fg = colors.blue, bg = colors.grey } },
-  replace = { a = { fg = colors.white, bg = colors.grey } },
+  insert = {
+    b = { fg = colors.green, bg = colors.grey },
+  },
+
+  visual = {
+    b = { fg = colors.blue, bg = colors.grey },
+  },
+
+  replace = {
+    b = { fg = colors.white, bg = colors.grey },
+  },
 
   inactive = {
     a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
+    b = { fg = colors.violet, bg = colors.black },
     c = { fg = colors.white },
   },
 }
 
-require('lualine').setup {
+require("lualine").setup({
   options = {
     theme = bubbles_theme,
-    component_separators = '',
-    section_separators = { left = '', right = '' },
-  },
-  sections = {
-    lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-    lualine_b = { 'filename', 'branch' },
-    lualine_c = {
-      '%=', --[[ add your center components here in place of this comment ]]
+    globalstatus = true,
+
+    component_separators = "",
+    section_separators = "",
+
+    disabled_filetypes = {
+      statusline = { "NvimTree" },
     },
-    lualine_x = {},
-    lualine_y = { 'filetype', '' },
-    lualine_z = {
-      { 
-        'diagnostics', 
+  },
+
+  sections = {
+    lualine_a = {},
+
+    lualine_b = {
+      {
+        "mode",
+        fmt = function(str)
+          return str:sub(1, 1):upper()
+        end,
+      },
+    },
+
+    lualine_c = {
+      {
+        "filename",
+        path = 0,
+      },
+    },
+
+    lualine_x = {
+      {
+        "diagnostics",
+        sources = { "nvim_diagnostic" },
         update_in_insert = true,
 
+        sections = { "error", "warn" },
+
         symbols = {
-          error = "E:",
-          warn  = "W:",
-          info  = "I:",
-          hint  = "H:",
+          error = "",
+          warn  = "",
         },
 
         diagnostics_color = {
           error = { fg = "#ff5555" },
           warn  = { fg = "#f1fa8c" },
-          info  = { fg = "#8be9fd" },
-          hint  = { fg = "#50fa7b" },
         },
-
-        separator = { left = '' }, 
-        left_padding = 2 },
       },
     },
-    inactive_sections = {
-      lualine_a = { 'filename' },
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {'location'},
+
+    lualine_y = {
+      "",
     },
-    tabline = {},
-    extensions = {},
-  }
+
+    lualine_z = {
+      {
+        "branch",
+      },
+    },
+  },
+
+  inactive_sections = {
+    lualine_a = { "filename" },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
+  },
+
+  tabline = {},
+  extensions = {},
+})
