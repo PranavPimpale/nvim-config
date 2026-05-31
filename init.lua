@@ -28,6 +28,7 @@ vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.signcolumn = "yes" -- git changes indicator "not imp still enabled from here"
 
 vim.keymap.set("i", "<CR>", function()
   return require("nvim-autopairs").autopairs_cr()
