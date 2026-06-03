@@ -75,3 +75,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "ModeChanged" }, {
     end, 3000) -- 3 seconds
   end,
 })
+
+-- showing git changes column only at thr changes otherwise turned off
+vim.opt.signcolumn = "auto"

@@ -27,6 +27,10 @@ local bubbles_theme = {
     b = { fg = colors.blue, bg = colors.grey },
   },
 
+  command = {
+    b = { fg = colors.blue, bg = colors.grey, gui = "bold" }, -- Blue
+  },
+
   replace = {
     b = { fg = colors.white, bg = colors.grey },
   },
