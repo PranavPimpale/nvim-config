@@ -3,6 +3,16 @@ require('config.keybinds')
 require('config.lazy')
 require('config.lualine')
 
+-----[THEME SETTINGS]-----
+vim.cmd.colorscheme("vague")
+
+vim.api.nvim_set_hl(0, "MatchParen", {
+  fg = "#FF1000",
+  bg = "NONE",
+  bold = true,
+})
+--------------------------
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "cpp", "c" },
   callback = function()
@@ -36,12 +46,13 @@ end, { expr = true })
 
 local map = vim.keymap.set
 
+-- file saving with ctrl+s
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", {
   desc = "Save file",
 })
 
--- this fixed the tab issue but i used another method to tackle the issue
---vim.keymap.del({ "i", "s" }, "<Tab>")
+--[[ this fixed the tab issue but i used another method to tackle the issue
+vim.keymap.del({ "i", "s" }, "<Tab>")]]--
 
 vim.diagnostic.config({
   signs = false,
@@ -76,5 +87,5 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "ModeChanged" }, {
   end,
 })
 
--- showing git changes column only at thr changes otherwise turned off
+-- showing git changes column only at the changes otherwise turned off
 vim.opt.signcolumn = "auto"

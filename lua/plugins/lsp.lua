@@ -25,6 +25,7 @@ return {
       local servers = {
         "clangd",
         "pyright",
+        "lua_ls",
       }
 
       for _, server in ipairs(servers) do
