@@ -3,15 +3,8 @@ require('config.keybinds')
 require('config.lazy')
 require('config.lualine')
 
------[THEME SETTINGS]-----
+-----[THEME SETUP]-----
 vim.cmd.colorscheme("vague")
-
-vim.api.nvim_set_hl(0, "MatchParen", {
-  fg = "#FF1000",
-  bg = "NONE",
-  bold = true,
-})
---------------------------
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "cpp", "c" },

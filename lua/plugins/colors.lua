@@ -1,6 +1,3 @@
-local function enable_transparency()
-  vim.api.nvim_set_hl(0, "normal", { bg = "none" })
-end
 return {
   {
     "folke/tokyonight.nvim",
@@ -38,10 +35,19 @@ return {
     priority = 100,
     config = function()
       require('vague').setup({
-        transparent = false, -- If true, background is not set
-        bold = false, -- Disable bold globally
-        italic = false, -- Disable italic globally
-        on_highlights = function(hl, colors) end,
+        transparent = false,
+        bold = false,
+        italic = false,
+        on_highlights = function(hl, colors)
+          hl.EndOfBuffer = {
+            fg = colors.bg,
+          }
+          hl.MatchParen = {
+            fg = "#FF1000",
+            bg = "NONE",
+            bold = true,
+          }
+        end,
         colors = {
           bg = '#141415',
           inactiveBg = '#1c1c24',

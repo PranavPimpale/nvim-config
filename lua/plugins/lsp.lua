@@ -29,11 +29,22 @@ return {
       }
 
       for _, server in ipairs(servers) do
-        vim.lsp.config(server, {
+        local opts = {
           capabilities = capabilities,
           on_attach = on_attach,
-        })
+        }
 
+        if server == "lua_ls" then
+          opts.settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+            },
+          }
+        end
+
+        vim.lsp.config(server, opts)
         vim.lsp.enable(server)
       end
 
