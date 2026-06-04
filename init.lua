@@ -1,4 +1,3 @@
-require('config.options')
 require('config.keybinds')
 require('config.lazy')
 require('config.lualine')
@@ -6,6 +5,7 @@ require('config.lualine')
 -----[THEME SETUP]-----
 vim.cmd.colorscheme("vague")
 
+-- tabspaces according to the language
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "cpp", "c" },
   callback = function()
@@ -26,44 +26,32 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- tab indentation
 vim.opt.smartindent = true
 vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.signcolumn = "yes" -- git changes indicator "not imp still enabled from here"
 
+-- git sign on the left side of the number line
+vim.opt.signcolumn = "yes"
+
+-- number line 
+vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.relativenumber = true
+
+-- Creates properly indented new lines between matching pairs
 vim.keymap.set("i", "<CR>", function()
   return require("nvim-autopairs").autopairs_cr()
 end, { expr = true })
 
-local map = vim.keymap.set
-
 -- file saving with ctrl+s
-map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", {
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", {
   desc = "Save file",
 })
 
---[[ this fixed the tab issue but i used another method to tackle the issue
-vim.keymap.del({ "i", "s" }, "<Tab>")]]--
-
+-- disabled W/E like signs on the left side of the number line
 vim.diagnostic.config({
   signs = false,
 })
-
--- switching between nvim-tree and buffer
-vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
-
--- switching between buffer tabs 
-vim.keymap.set("n", "<Tab>", ":bnext<CR>", { silent = true })
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { silent = true })
-
--- Insert mode cursor movement with Ctrl + h/j/k/l
-vim.keymap.set('i', '<C-h>', '<Left>',  { noremap = true, silent = true })
-vim.keymap.set('i', '<C-j>', '<Down>',  { noremap = true, silent = true })
-vim.keymap.set('i', '<C-k>', '<Up>',    { noremap = true, silent = true })
-vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 
 -- 3 sec timout for the update/save message below the lualine
 vim.opt.showmode = false

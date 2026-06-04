@@ -53,7 +53,7 @@ return {
           inactiveBg = '#1c1c24',
           fg = '#cdcdcd',
           floatBorder = '#878787',
-          line = '#222021',
+          line = '#171717',
           comment = '#606079',
           builtin = '#b4d4cf',
           func = '#c48282',
