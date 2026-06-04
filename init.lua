@@ -70,3 +70,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "ModeChanged" }, {
 
 -- showing git changes column only at the changes otherwise turned off
 vim.opt.signcolumn = "auto"
+
+-- disabled underline
+vim.diagnostic.config({
+  underline = false,
+})
