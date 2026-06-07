@@ -75,3 +75,13 @@ vim.opt.signcolumn = "auto"
 vim.diagnostic.config({
   underline = false,
 })
+
+-- dim deprecated suggestions
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", {
+      fg = "#373737",
+      strikethrough = false,
+    })
+  end,
+})
