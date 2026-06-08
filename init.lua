@@ -33,7 +33,7 @@ vim.opt.autoindent = true
 -- git sign on the left side of the number line
 vim.opt.signcolumn = "yes"
 
--- number line 
+-- number line
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
@@ -85,3 +85,18 @@ vim.api.nvim_create_autocmd("VimEnter", {
     })
   end,
 })
+
+-- auto format after save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    local pos = vim.api.nvim_win_get_cursor(0)
+
+    vim.cmd("normal! gg=G")
+
+    vim.api.nvim_win_set_cursor(0, pos)
+  end,
+})
+
+-- yank to clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true })

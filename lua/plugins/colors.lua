@@ -1,24 +1,6 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    config = function()
-      --enable_transparency()
-    end
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    opts = {
-      theme = 'tokyonight',
-    }
-  },
-  {
-    "kdheepak/monochrome.nvim",
-  },
-  {
-     "thepogsupreme/mountain.nvim",
+    "thepogsupreme/mountain.nvim",
     lazy = false,
     priority = 100,
     config = function()
