@@ -38,16 +38,6 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
 
--- Creates properly indented new lines between matching pairs
-vim.keymap.set("i", "<CR>", function()
-  return require("nvim-autopairs").autopairs_cr()
-end, { expr = true })
-
--- file saving with ctrl+s
-vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", {
-  desc = "Save file",
-})
-
 -- disabled W/E like signs on the left side of the number line
 vim.diagnostic.config({
   signs = false,
@@ -90,13 +80,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function()
-    local pos = vim.api.nvim_win_get_cursor(0)
+    local view = vim.fn.winsaveview()
 
     vim.cmd("normal! gg=G")
 
-    vim.api.nvim_win_set_cursor(0, pos)
+    vim.fn.winrestview(view)
   end,
 })
-
--- yank to clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true })
