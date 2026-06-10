@@ -1,3 +1,5 @@
+-- .config/nvim/lua/config/keybinds.lua
+
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
 
@@ -21,10 +23,13 @@ vim.keymap.set("i", "<CR>", function()
 end, { expr = true })
 
 -- file saving with ctrl+s
-vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", {
+vim.keymap.set({ "n", "v" }, "<C-s>", "<cmd>w<CR>", {
   desc = "Save file",
 })
 
 -- yank/paste to clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { silent = true, desc = "Paste from system clipboard" })
+
+-- replacing <Esc> with Ctrl+z
+vim.keymap.set({ "i", "v", "s" }, "<C-s>", "<Esc>", { noremap = true, silent = true })
