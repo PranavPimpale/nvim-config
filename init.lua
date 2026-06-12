@@ -27,7 +27,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- tab indentation
-vim.opt.smartindent = true
 vim.opt.autoindent = true
 
 -- git sign on the left side of the number line
@@ -73,5 +72,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
       fg = "#373737",
       strikethrough = false,
     })
+  end,
+})
+
+-- format after save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    local view = vim.fn.winsaveview()
+    vim.cmd("silent! normal! gg=G")
+    vim.fn.winrestview(view)
   end,
 })
