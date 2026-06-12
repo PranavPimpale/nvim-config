@@ -43,7 +43,7 @@ vim.diagnostic.config({
 })
 
 -- 3 sec timout for the update/save message below the lualine
-vim.opt.showmode = false
+--[[vim.opt.showmode = false
 local group = vim.api.nvim_create_augroup("ClearMessages", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "ModeChanged" }, {
@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "ModeChanged" }, {
       end
     end, 3000) -- 3 seconds
   end,
-})
+})]]--
 
 -- showing git changes column only at the changes otherwise turned off
 vim.opt.signcolumn = "auto"
@@ -81,5 +81,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     local view = vim.fn.winsaveview()
     vim.cmd("silent! normal! gg=G")
     vim.fn.winrestview(view)
+  end,
+})
+
+-- remove this after deleting plugins/notify.lua
+vim.api.nvim_create_autocmd("BufWritePost", {
+  callback = function(args)
+    vim.notify(
+      "Saved: " .. vim.fn.fnamemodify(args.file, ":t"),
+      vim.log.levels.INFO,
+      {}
+    )
   end,
 })
