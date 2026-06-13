@@ -31,5 +31,18 @@ vim.keymap.set({ "n", "v" }, "<C-s>", "<cmd>w<CR>", {
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { silent = true, desc = "Paste from system clipboard" })
 
--- replacing <Esc> with Ctrl+z
+-- replacing <Esc> with Ctrl+s
 vim.keymap.set({ "i", "v", "s" }, "<C-s>", "<Esc>", { noremap = true, silent = true })
+
+-- Noice Enable/Disable keybinds
+local noice_enabled = true
+
+vim.keymap.set("n", "<leader>[", function()
+  if noice_enabled then
+    vim.cmd("NoiceDisable")
+    noice_enabled = false
+  else
+    vim.cmd("NoiceEnable")
+    noice_enabled = true
+  end
+end, { desc = "Toggle Noice" })
