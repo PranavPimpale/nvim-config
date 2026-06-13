@@ -5,6 +5,11 @@ require('config.lualine')
 -----[THEME SETUP]-----
 vim.cmd.colorscheme("vague")
 
+vim.api.nvim_set_hl(0, "StatusLine", {
+  fg = "#c6c6c6",
+  bg = "#191919",
+})
+
 -- tabspaces according to the language
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "cpp", "c" },

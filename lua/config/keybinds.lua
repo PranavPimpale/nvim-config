@@ -22,6 +22,15 @@ vim.keymap.set("i", "<CR>", function()
   return require("nvim-autopairs").autopairs_cr()
 end, { expr = true })
 
+-- [cmd] :restart
+vim.keymap.set('n', '<leader>re', ':restart<CR>', { noremap = true, silent = true })
+
+-- [cmd] :Lazy
+vim.keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
+
+-- [cmd] :q!
+vim.keymap.set('n', '<C-q>', ':q!<CR>', { noremap = true, silent = true })
+
 -- file saving with ctrl+s
 vim.keymap.set({ "n", "v" }, "<C-s>", "<cmd>w<CR>", {
   desc = "Save file",
@@ -46,3 +55,8 @@ vim.keymap.set("n", "<leader>[", function()
     noice_enabled = true
   end
 end, { desc = "Toggle Noice" })
+
+-- noggle :noh
+vim.keymap.set("n", "<leader>n", function()
+  vim.o.hlsearch = not vim.o.hlsearch
+end, { desc = "Toggle search highlight" })

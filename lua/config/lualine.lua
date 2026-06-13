@@ -12,32 +12,32 @@ local colors = {
 
 local bubbles_theme = {
   normal = {
-    a = { fg = colors.white, bg = colors.grey },
-    b = { fg = colors.red, bg = colors.grey },
+    a = { fg = colors.red, bg = colors.grey, gui = "bold" },
+    b = { fg = colors.white, bg = colors.grey },
     c = { fg = colors.white },
 
     x = { fg = colors.white, bg = colors.grey },
   },
 
   insert = {
-    b = { fg = colors.green, bg = colors.grey },
+    a = { fg = colors.blue, bg = colors.grey, gui = "bold" },
   },
 
   visual = {
-    b = { fg = colors.blue, bg = colors.grey },
+    a = { fg = colors.cyan, bg = colors.grey, gui = "bold" },
   },
 
   command = {
-    b = { fg = colors.blue, bg = colors.grey, gui = "bold" }, -- Blue
+    a = { fg = colors.green, bg = colors.grey, gui = "bold" },
   },
 
   replace = {
-    b = { fg = colors.white, bg = colors.grey },
+    a = { fg = colors.white, bg = colors.grey, gui = "bold"},
   },
 
   inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.violet, bg = colors.black },
+    a = { fg = colors.violet, bg = colors.black, gui = "bold" },
+    b = { fg = colors.white, bg = colors.black },
     c = { fg = colors.white },
   },
 }
@@ -56,9 +56,7 @@ require("lualine").setup({
   },
 
   sections = {
-    lualine_a = {},
-
-    lualine_b = {
+    lualine_a = {
       {
         "mode",
         fmt = function(str)
@@ -67,14 +65,17 @@ require("lualine").setup({
       },
     },
 
-    lualine_c = {
+    lualine_b = {
       {
         "filename",
         path = 0,
+        color = {
+          bg = "#191919",
+        },
       },
     },
 
-    lualine_x = {
+    lualine_c = {
       {
         "diagnostics",
         sources = { "nvim_diagnostic" },
@@ -91,18 +92,40 @@ require("lualine").setup({
           error = { fg = "#ff5555" },
           warn  = { fg = "#f1fa8c" },
         },
+
+        color = {
+          bg = "#191919";
+        },
+      },
+    },
+
+    lualine_x = {
+      {
+        function()
+          local date = tostring(os.date("%d %b")):gsub("^0", ""):lower()
+          local time = tostring(os.date("%I:%M %p")):gsub("^0", ""):lower()
+
+          return string.format("%s | %s", date, time)
+        end,
+
+        color = {
+          fg = "#aeb5b7",
+          bg = "#191919",
+        },
       },
     },
 
     lualine_y = {
-      "",
-    },
-
-    lualine_z = {
       {
         "branch",
+        color = {
+          fg = colors.white,
+          bg = "#272727",
+        }
       },
     },
+
+    lualine_z = {},
   },
 
   inactive_sections = {
