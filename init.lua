@@ -84,11 +84,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+-- notify on save 
 -- remove this after deleting plugins/notify.lua
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function(args)
     vim.notify(
-      "Saved: " .. vim.fn.fnamemodify(args.file, ":t"),
+      " Saved:" .. vim.fn.fnamemodify(args.file, ":t") .. " ",
       vim.log.levels.INFO,
       {}
     )
