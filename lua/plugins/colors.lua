@@ -31,7 +31,7 @@ return {
           }
         end,
         colors = {
-          bg = '#111111',
+          bg = '#101010',
           inactiveBg = '#1c1c24',
           fg = '#cdcdcd',
           floatBorder = '#878787',
