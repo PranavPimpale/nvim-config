@@ -35,8 +35,15 @@ return {
         },
 
         window = {
-          completion = {
+          completion = cmp.config.window.bordered({
+            border = "rounded",
             max_height = 7,
+          }),
+        },
+
+        view = {
+          docs = {
+            auto_open = false,
           },
         },
 
