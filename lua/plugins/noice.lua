@@ -6,6 +6,12 @@ return {
     "rcarriga/nvim-notify",
   },
   opts = {
+    lsp = {
+      signature = {
+        enabled = false,
+      },
+    },
+
     cmdline = {
       enabled = true,
       format = {
