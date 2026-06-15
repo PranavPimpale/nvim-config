@@ -5,9 +5,16 @@ require('config.lualine')
 -----[THEME SETUP]-----
 vim.cmd.colorscheme("vague")
 
+-- lualine color set for space between section-c and section-x
 vim.api.nvim_set_hl(0, "StatusLine", {
-  fg = "#c6c6c6",
+  fg = "#dddddd",
   bg = "#191919",
+})
+
+-- code suggestion color adjustments
+vim.api.nvim_set_hl(0, "FloatBorder", {
+  fg = "#dddddd",
+  bg = "#101010",
 })
 
 -- tabspaces according to the language

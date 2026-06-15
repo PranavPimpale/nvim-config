@@ -25,8 +25,8 @@ return {
             fg = colors.bg,
           }
           hl.MatchParen = {
-            fg = "#FF1000",
-            bg = "NONE",
+            fg = "#E55451",
+            bg = "#232323",
             bold = true,
           }
         end,
@@ -38,14 +38,14 @@ return {
           line = '#171717',
           comment = '#606079',
           builtin = '#b4d4cf',
-          func = '#c48282',
+          func = '#F78C6C',
           string = '#9DC183',
           number = '#e0a363',
           property = '#c3c3d5',
           constant = '#aeaed1',
           parameter = '#bb9dbd',
           --visual = '#B388FF',
-          error = '#FF2400',
+          error = '#f94449',
           warning = '#f3be7c',
           hint = '#7e98e8',
           operator = '#90a0b5',

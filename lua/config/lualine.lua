@@ -2,17 +2,20 @@
 local colors = {
   blue   = '#80a0ff',
   cyan   = '#79dac8',
-  black  = '#080808',
-  white  = '#c6c6c6',
+  black  = '#191919',
+  white  = '#eeeeee',
   red    = '#f94449',
   violet = '#d183e8',
   grey   = '#303030',
   green  = '#72bf6a',
+  dark   = '#272727',
+  cherry = '#ff5555',
+  yellow = '#f1fa8c',
 }
 
 local bubbles_theme = {
   normal = {
-    a = { fg = colors.red, bg = colors.grey, gui = "bold" },
+    a = { fg = colors.red, bg = colors.dark, gui = "bold" },
     b = { fg = colors.white, bg = colors.grey },
     c = { fg = colors.white },
 
@@ -70,7 +73,7 @@ require("lualine").setup({
         "filename",
         path = 0,
         color = {
-          bg = "#191919",
+          bg = colors.black,
         },
       },
     },
@@ -89,12 +92,12 @@ require("lualine").setup({
         },
 
         diagnostics_color = {
-          error = { fg = "#ff5555" },
-          warn  = { fg = "#f1fa8c" },
+          error = { fg = colors.cherry },
+          warn  = { fg = colors.yellow },
         },
 
         color = {
-          bg = "#191919";
+          bg = colors.black;
         },
       },
     },
@@ -109,8 +112,8 @@ require("lualine").setup({
         end,
 
         color = {
-          fg = "#aeb5b7",
-          bg = "#191919",
+          fg = colors.white,
+          bg = colors.black,
         },
       },
     },
@@ -120,7 +123,7 @@ require("lualine").setup({
         "branch",
         color = {
           fg = colors.white,
-          bg = "#272727",
+          bg = colors.dark,
         }
       },
     },
