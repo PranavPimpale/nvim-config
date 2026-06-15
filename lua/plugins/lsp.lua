@@ -48,10 +48,13 @@ return {
         vim.lsp.enable(server)
       end
 
+      -- Lsp diagnostic configuration
       vim.diagnostic.config({
-        virtual_text = true,
+        virtual_text = { prefix = "<" },
         severity_sort = true,
-        update_in_insert = true,
+        update_in_insert = false, -- live error checking in insert mode
+        signs = false,
+        underline = false,
         float = {
           style = "minimal",
           border = "rounded",

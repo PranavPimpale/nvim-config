@@ -1,17 +1,5 @@
 return {
   {
-    "thepogsupreme/mountain.nvim",
-    lazy = false,
-    priority = 100,
-    config = function()
-    end,
-  },
-  {
-    "EdenEast/nightfox.nvim",
-    lazy = false,
-    priority = 100,
-  },
-  {
     "vague2k/vague.nvim",
     lazy = false,
     priority = 100,
@@ -58,4 +46,18 @@ return {
       })
     end,
   },
+
+  --[[ theme : Mountain {
+    "thepogsupreme/mountain.nvim",
+    lazy = false,
+    priority = 100,
+    config = function()
+    end,
+  },]]--
+
+  --[[ theme : nightfox {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 100,
+  },]]--
 }
