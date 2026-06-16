@@ -7,11 +7,24 @@ opt.autoindent = true
 opt.number = true
 opt.cursorline = true
 opt.relativenumber = true
+opt.scrolloff = 5
 
 -- showing git changes column only at the changes otherwise turned off
 opt.signcolumn = "auto"
 
 -- performance
-opt.updatetime = 100
+opt.updatetime = 50
 opt.timeoutlen = 300
 opt.synmaxcol = 200
+
+-- better undo settings
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+-- search settings
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true

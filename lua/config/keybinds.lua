@@ -46,7 +46,7 @@ keymap.set({ "i", "v", "s" }, "<C-s>", "<Esc>", { noremap = true, silent = true 
 -- Noice Enable/Disable keybinds
 local noice_enabled = true
 
-keymap.set("n", "<leader>[", function()
+keymap.set("n", "<leader>:", function()
   if noice_enabled then
     vim.cmd("NoiceDisable")
     noice_enabled = false
