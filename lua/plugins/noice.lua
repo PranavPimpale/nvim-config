@@ -50,10 +50,10 @@ return {
       cmdline_popup = {
         position = {
           row = "90%",
-          col = "50%",
+          col = "0%",
         },
         size = {
-          width = "80%",   -- make smaller
+          width = "65%",
           height = "auto",
         },
         border = {

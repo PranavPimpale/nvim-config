@@ -17,6 +17,17 @@ keymap.set('i', '<C-j>', '<Down>',  { noremap = true, silent = true })
 keymap.set('i', '<C-k>', '<Up>',    { noremap = true, silent = true })
 keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 
+-- disabling arrow keys of keyboard in nvim
+vim.keymap.set("n", "<Up>", "<Nop>")
+vim.keymap.set("n", "<Down>", "<Nop>")
+vim.keymap.set("n", "<Left>", "<Nop>")
+vim.keymap.set("n", "<Right>", "<Nop>")
+
+vim.keymap.set("i", "<Up>", "<Nop>")
+vim.keymap.set("i", "<Down>", "<Nop>")
+vim.keymap.set("i", "<Left>", "<Nop>")
+vim.keymap.set("i", "<Right>", "<Nop>")
+
 -- Creates properly indented new lines between matching pairs
 keymap.set("i", "<CR>", function()
   return require("nvim-autopairs").autopairs_cr()
