@@ -9,7 +9,6 @@ return {
     },
 
     config = function()
-      vim.lsp.enable("pyright")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local on_attach = function(_, bufnr)
@@ -26,6 +25,11 @@ return {
         "clangd",
         "pyright",
         "lua_ls",
+        "rust_analyzer",
+        "ts_ls",
+        "html",
+        "cssls",
+        "jsonls",
       }
 
       for _, server in ipairs(servers) do

@@ -13,7 +13,7 @@ api.nvim_create_autocmd("FileType", {
 
 -- 4 spaced tab for lua/py
 api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "python" },
+  pattern = { "lua", "python", "html", "javascript", "css" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
