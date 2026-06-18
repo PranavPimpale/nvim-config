@@ -54,7 +54,7 @@ api.nvim_create_autocmd("ColorScheme", {
     -- code suggestions floating window border colors settings
     api.nvim_set_hl(0, "FloatBorder", {
       fg = "#dddddd",
-      bg = "#101010",
+      bg = "#090909",-- set the same color to the themes bg color code
     })
 
     api.nvim_set_hl(0, "CmpItemAbbrDeprecated", {

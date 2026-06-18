@@ -19,15 +19,15 @@ return {
           }
         end,
         colors = {
-          bg = '#101010',
+          bg = '#090909',-- previous : #101010
           inactiveBg = '#1c1c24',
           fg = '#cdcdcd',
           floatBorder = '#878787',
-          line = '#171717',
+          line = '#101010',
           comment = '#606079',
           builtin = '#b4d4cf',
           func = '#F78C6C',
-          string = '#9DC183',
+          string = '#b3cf99',
           number = '#e0a363',
           property = '#c3c3d5',
           constant = '#aeaed1',
