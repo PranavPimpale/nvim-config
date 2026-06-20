@@ -11,22 +11,27 @@ keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
 keymap.set("n", "<Tab>", ":bnext<CR>", { silent = true })
 keymap.set("n", "<S-Tab>", ":bprevious<CR>", { silent = true })
 
--- Insert mode cursor movement with Ctrl + h/j/k/l
+-- Insert mode cursor movement with Ctrl/Alt + h/j/k/l
 keymap.set('i', '<C-h>', '<Left>',  { noremap = true, silent = true })
 keymap.set('i', '<C-j>', '<Down>',  { noremap = true, silent = true })
 keymap.set('i', '<C-k>', '<Up>',    { noremap = true, silent = true })
 keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 
--- disabling arrow keys of keyboard in nvim
-vim.keymap.set("n", "<Up>", "<Nop>")
-vim.keymap.set("n", "<Down>", "<Nop>")
-vim.keymap.set("n", "<Left>", "<Nop>")
-vim.keymap.set("n", "<Right>", "<Nop>")
+keymap.set('i', '<A-h>', '<Left>',  { noremap = true, silent = true })
+keymap.set('i', '<A-j>', '<Down>',  { noremap = true, silent = true })
+keymap.set('i', '<A-k>', '<Up>',    { noremap = true, silent = true })
+keymap.set('i', '<A-l>', '<Right>', { noremap = true, silent = true })
 
-vim.keymap.set("i", "<Up>", "<Nop>")
-vim.keymap.set("i", "<Down>", "<Nop>")
-vim.keymap.set("i", "<Left>", "<Nop>")
-vim.keymap.set("i", "<Right>", "<Nop>")
+-- disabling arrow keys of keyboard in nvim
+keymap.set("n", "<Up>", "<Nop>")
+keymap.set("n", "<Down>", "<Nop>")
+keymap.set("n", "<Left>", "<Nop>")
+keymap.set("n", "<Right>", "<Nop>")
+
+keymap.set("i", "<Up>", "<Nop>")
+keymap.set("i", "<Down>", "<Nop>")
+keymap.set("i", "<Left>", "<Nop>")
+keymap.set("i", "<Right>", "<Nop>")
 
 -- Creates properly indented new lines between matching pairs
 keymap.set("i", "<CR>", function()
@@ -39,22 +44,19 @@ keymap.set('n', '<leader>re', ':restart<CR>', { noremap = true, silent = true })
 -- [cmd] :Lazy
 keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
 
--- [cmd] :q!
-keymap.set('n', '<C-q>', ':q!<CR>', { noremap = true, silent = true })
-
--- file saving with ctrl+s
-keymap.set({ "n", "v" }, "<C-s>", "<cmd>w<CR>", {
-  desc = "Save file",
-})
-
 -- yank/paste to clipboard
 keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
 keymap.set({ "n", "v" }, "<leader>p", '"+p', { silent = true, desc = "Paste from system clipboard" })
 
--- replacing <Esc> with Ctrl+s
-keymap.set({ "i", "v", "s" }, "<C-s>", "<Esc>", { noremap = true, silent = true })
+-- insert -> normal
+keymap.set({ "i", "v", "s" }, "<A-n>", "<Esc>", { noremap = true, silent = true })
 
--- Noice Enable/Disable keybinds
+-- save file
+keymap.set({ "n", "v" }, "<A-s>", "<cmd>w<CR>", {
+  desc = "Save file",
+})
+
+-- Noice cmdline Enable/Disable keybinds
 local noice_enabled = true
 
 keymap.set("n", "<leader>:", function()
@@ -71,3 +73,7 @@ end, { desc = "Toggle Noice" })
 keymap.set("n", "<leader>n", function()
   vim.o.hlsearch = not vim.o.hlsearch
 end, { desc = "Toggle search highlight" })
+
+-- ctrl keybinds to alt keybinds
+keymap.set('i', '<A-o>', '<C-o>', { noremap = true, silent = true })
+keymap.set('n', '<A-t>', ':ToggleTerm<CR>', { noremap = true, silent = true })
