@@ -8,13 +8,13 @@ return {
     local colors = {
       blue   = '#80a0ff',
       cyan   = '#79dac8',
-      black  = '#191919',
+      black  = '#171717',
       white  = '#eeeeee',
       red    = '#f94449',
       violet = '#d183e8',
       grey   = '#282828',
       green  = '#72bf6a',
-      dark   = '#272727',
+      dark   = '#232323',
       cherry = '#ff5555',
       yellow = '#f1fa8c',
     }

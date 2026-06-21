@@ -48,7 +48,7 @@ api.nvim_create_autocmd("ColorScheme", {
     -- lualine color set for blank space between section-c and section-x
     api.nvim_set_hl(0, "StatusLine", {
       fg = "#dddddd",
-      bg = "#191919",
+      bg = "#171717",
     })
 
     -- code suggestions floating window border colors settings
