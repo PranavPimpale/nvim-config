@@ -39,6 +39,7 @@ return {
           completion = cmp.config.window.bordered({
             border = "rounded",
             max_height = 7,
+            scrollbar = false,
           }),
         },
 

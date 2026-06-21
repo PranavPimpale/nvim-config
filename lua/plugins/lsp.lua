@@ -25,11 +25,11 @@ return {
         "clangd",
         "pyright",
         "lua_ls",
-        "rust_analyzer",
-        "ts_ls",
-        "html",
-        "cssls",
-        "jsonls",
+        -- "rust_analyzer",
+        -- "ts_ls",
+        -- "html",
+        -- "cssls",
+        -- "jsonls",
       }
 
       for _, server in ipairs(servers) do
