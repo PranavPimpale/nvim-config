@@ -14,7 +14,7 @@ opt.signcolumn = "auto"
 
 -- performance
 opt.updatetime = 50
-opt.timeoutlen = 300
+opt.timeoutlen = 225
 opt.synmaxcol = 200
 
 -- better undo settings
