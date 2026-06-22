@@ -20,7 +20,7 @@ return {
     local Terminal = require("toggleterm.terminal").Terminal
     local term = nil
 
-    vim.keymap.set({ "n", "t" }, "<C-t>", function()
+    vim.keymap.set({ "n", "t" }, "<leader>d", function()
       if term and term:is_open() then
         term:shutdown()
         term = nil

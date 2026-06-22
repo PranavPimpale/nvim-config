@@ -32,19 +32,7 @@ api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- notify on save (plugins -> notify)
-api.nvim_create_autocmd("BufWritePost", {
-  callback = function(args)
-    vim.notify(
-      " Saved:" .. vim.fn.fnamemodify(args.file, ":t") .. " ",
-      vim.log.levels.INFO,
-      {}
-    )
-  end,
-})
-
 api.nvim_create_autocmd("ColorScheme", {
-
   callback = function()
     -- lualine color set for blank space between section-c and section-x
     api.nvim_set_hl(0, "StatusLine", {
@@ -62,5 +50,14 @@ api.nvim_create_autocmd("ColorScheme", {
       fg = "#373737",
       strikethrough = false,
     })
+  end,
+})
+
+-- 3 sec only for saved message in cmdline
+vim.api.nvim_create_autocmd("BufWritePost", {
+  callback = function()
+    vim.defer_fn(function()
+      vim.cmd("echo ''")
+    end, 500)
   end,
 })

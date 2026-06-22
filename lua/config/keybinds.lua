@@ -48,18 +48,10 @@ keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
 keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
 keymap.set({ "n", "v" }, "<leader>p", '"+p', { silent = true, desc = "Paste from system clipboard" })
 
--- insert -> normal
-keymap.set({ "i", "v", "s" }, "<A-n>", "<Esc>", { noremap = true, silent = true })
-
--- save file
-keymap.set({ "n", "v" }, "<A-s>", "<cmd>w<CR>", {
-  desc = "Save file",
-})
-
+--[[ uncomment this when noice plugin is enabled 
 -- Noice cmdline Enable/Disable keybinds
 local noice_enabled = true
-
-keymap.set("n", "<leader>:", function()
+keymap.set("n", "<leader>;", function()
   if noice_enabled then
     vim.cmd("NoiceDisable")
     noice_enabled = false
@@ -68,12 +60,12 @@ keymap.set("n", "<leader>:", function()
     noice_enabled = true
   end
 end, { desc = "Toggle Noice" })
+]]-- 
+
+-- ctrl+c to clear the cmdline
+keymap.set('n', '<C-c>', ':echo ""<CR>', { noremap = true, silent = true })
 
 -- noggle :noh
 keymap.set("n", "<leader>n", function()
   vim.o.hlsearch = not vim.o.hlsearch
 end, { desc = "Toggle search highlight" })
-
--- ctrl keybinds to alt keybinds
-keymap.set('i', '<A-o>', '<C-o>', { noremap = true, silent = true })
-keymap.set('n', '<A-t>', ':ToggleTerm<CR>', { noremap = true, silent = true })

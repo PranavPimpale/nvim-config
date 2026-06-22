@@ -31,3 +31,6 @@ vim.opt.smartcase = true
 
 -- mouse disabled
 vim.opt.mouse = ""
+
+-- hide mode from cmdline
+vim.opt.showmode = false
