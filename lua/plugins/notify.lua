@@ -1,5 +1,8 @@
+local plugins = require("config.plugins")
+
 return {
   "rcarriga/nvim-notify",
+  enabled = plugins.notify,
   config = function()
     require("notify").setup({
       render = "minimal",

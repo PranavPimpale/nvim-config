@@ -1,9 +1,9 @@
--- lua/plugins/lsp.lua
+local plugins = require("config.plugins")
 
 return {
   {
     "neovim/nvim-lspconfig",
-
+    enabled = plugins.lsp,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
     },

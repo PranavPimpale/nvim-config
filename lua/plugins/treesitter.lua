@@ -1,7 +1,10 @@
+local plugins = require("config.plugins")
+
 return {
   -- NOTE: treesitter CLI installation needed
   {
     "nvim-treesitter/nvim-treesitter",
+    enabled = plugins.treesitter,
     branch = "main",
     lazy = false,
     build = ":TSUpdate",

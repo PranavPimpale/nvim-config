@@ -1,5 +1,8 @@
+local plugins = require("config.plugins")
+
 return {
   "folke/noice.nvim",
+  enabled = plugins.noice,
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",

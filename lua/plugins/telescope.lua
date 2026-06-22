@@ -1,6 +1,9 @@
+local plugins = require("config.plugins")
+
 return {
   {
     'nvim-telescope/telescope.nvim', version = '*',
+    enabled = plugins.telescope,
     dependencies = {
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },

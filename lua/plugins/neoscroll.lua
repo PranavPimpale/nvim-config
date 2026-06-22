@@ -1,5 +1,8 @@
+local plugins = require("config.plugins")
+
 return {
   "karb94/neoscroll.nvim",
+  enabled = plugins.neoscroll,
   event = "WinScrolled",
 
   opts = {

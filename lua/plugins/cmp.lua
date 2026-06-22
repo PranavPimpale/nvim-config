@@ -1,8 +1,9 @@
--- lua/plugins/cmp.lua
+local plugins = require("config.plugins")
 
 return {
   {
     "hrsh7th/nvim-cmp",
+    enabled = plugins.cmp,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -109,6 +110,21 @@ return {
           { name = "buffer" },
           { name = "path" },
         }),
+
+        formatting = {
+          format = function(entry, vim_item)
+            vim_item.menu = ({
+              luasnip = "[Snip]",
+              nvim_lsp = "[LSP]",
+              buffer = "[Buf]",
+              path = "[Path]",
+            })[entry.source.name]
+
+            -- Remove the long detail text
+            vim_item.abbr = vim_item.abbr
+            return vim_item
+          end,
+        }
       })
     end,
   },

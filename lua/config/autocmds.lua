@@ -1,4 +1,5 @@
 local api = vim.api
+local colors = require("config.colors")
 
 -- 4 spaced tab for c/cpp
 api.nvim_create_autocmd("FileType", {
@@ -47,14 +48,14 @@ api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     -- lualine color set for blank space between section-c and section-x
     api.nvim_set_hl(0, "StatusLine", {
-      fg = "#dddddd",
-      bg = "#171717",
+      fg = colors.white,
+      bg = colors.black,
     })
 
     -- code suggestions floating window border colors settings
     api.nvim_set_hl(0, "FloatBorder", {
-      fg = "#dddddd",
-      bg = "#090909",-- set the same color to the themes bg color code
+      fg = colors.white,
+      bg = colors.neovim_background,-- set the same color to the themes bg color code
     })
 
     api.nvim_set_hl(0, "CmpItemAbbrDeprecated", {

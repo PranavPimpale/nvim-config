@@ -1,5 +1,8 @@
+local plugins = require("config.plugins")
+
 return {
   "akinsho/toggleterm.nvim",
+  enabled = plugins.toggleterm,
   version = "*",
 
   config = function()

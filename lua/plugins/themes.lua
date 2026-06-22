@@ -1,3 +1,5 @@
+local bg = require('config.colors')
+
 return {
   {
     "vague2k/vague.nvim",
@@ -19,7 +21,7 @@ return {
           }
         end,
         colors = {
-          bg = '#090909',-- previous : #101010
+          bg = bg.neovim_background,-- previous : #101010
           inactiveBg = '#1c1c24',
           fg = '#cdcdcd',
           floatBorder = '#878787',

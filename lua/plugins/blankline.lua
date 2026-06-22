@@ -1,6 +1,9 @@
+local plugins = require("config.plugins")
+
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
+    enabled = plugins.blankline,
     main = "ibl",
     --@module "ibl"
     --@type ibl.config

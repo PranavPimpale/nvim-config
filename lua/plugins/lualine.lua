@@ -1,24 +1,13 @@
+local plugins = require("config.plugins")
+local colors = require('config.colors')
+
 return {
   'nvim-lualine/lualine.nvim',
+  enabled = plugins.lualine,
   event = "UIEnter",
   dependencies = { 'nvim-tree/nvim-web-devicons' },
 
   config = function ()
-    -- stylua: ignore
-    local colors = {
-      blue   = '#80a0ff',
-      cyan   = '#79dac8',
-      black  = '#171717',
-      white  = '#eeeeee',
-      red    = '#f94449',
-      violet = '#d183e8',
-      grey   = '#282828',
-      green  = '#72bf6a',
-      dark   = '#232323',
-      cherry = '#ff5555',
-      yellow = '#f1fa8c',
-    }
-
     local bubbles_theme = {
       normal = {
         a = { fg = colors.red, bg = colors.dark, gui = "bold" },
@@ -29,23 +18,23 @@ return {
       },
 
       insert = {
-        a = { fg = colors.blue, bg = colors.grey, gui = "bold" },
+        a = { fg = colors.blue, bg = colors.dark, gui = "bold" },
       },
 
       visual = {
-        a = { fg = colors.cyan, bg = colors.grey, gui = "bold" },
+        a = { fg = colors.cyan, bg = colors.dark, gui = "bold" },
       },
 
       command = {
-        a = { fg = colors.green, bg = colors.grey, gui = "bold" },
+        a = { fg = colors.green, bg = colors.dark, gui = "bold" },
       },
 
       replace = {
-        a = { fg = colors.white, bg = colors.grey, gui = "bold"},
+        a = { fg = colors.white, bg = colors.dark, gui = "bold"},
       },
 
       inactive = {
-        a = { fg = colors.violet, bg = colors.black, gui = "bold" },
+        a = { fg = colors.violet, bg = colors.dark, gui = "bold" },
         b = { fg = colors.white, bg = colors.black },
         c = { fg = colors.white },
       },
