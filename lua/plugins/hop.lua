@@ -13,7 +13,7 @@ return {
     {
       "L",
       function()
-        require("hop").hint_lines_skip_whitespace()
+        require("hop").hint_lines()
       end,
       desc = "Hop Lines",
     },
