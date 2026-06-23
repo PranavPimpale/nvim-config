@@ -7,7 +7,7 @@ opt.autoindent = true
 opt.number = true
 opt.cursorline = true
 opt.relativenumber = true
-opt.scrolloff = 5
+opt.scrolloff = 3
 
 -- showing git changes column only at the changes otherwise turned off
 opt.signcolumn = "auto"
