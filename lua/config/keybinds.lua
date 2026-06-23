@@ -44,6 +44,9 @@ keymap.set('n', '<leader>re', ':restart<CR>', { noremap = true, silent = true })
 -- [cmd] :Lazy
 keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
 
+-- [cmd] :w
+keymap.set('n', '<A-s>', ':w<CR>', { noremap = true, silent = true })
+
 -- yank/paste to clipboard
 keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
 keymap.set({ "n", "v" }, "<leader>p", '"+p', { silent = true, desc = "Paste from system clipboard" })

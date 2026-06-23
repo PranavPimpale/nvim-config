@@ -20,7 +20,8 @@ return {
     local Terminal = require("toggleterm.terminal").Terminal
     local term = nil
 
-    vim.keymap.set({ "n", "t" }, "<leader>d", function()
+    -- dont set the toggleterm keybind with <leader>, it makes the space lag in the terminal
+    vim.keymap.set({ "n", "t" }, "<A-k>", function()
       if term and term:is_open() then
         term:shutdown()
         term = nil
