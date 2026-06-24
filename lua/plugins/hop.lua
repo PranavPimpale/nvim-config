@@ -1,5 +1,8 @@
+local plugins = require('config.plugins')
+
 return {
   "smoka7/hop.nvim",
+  enabled = plugins.hop,
   version = "*",
   opts = {},
   keys = {

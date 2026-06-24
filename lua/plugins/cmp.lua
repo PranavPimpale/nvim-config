@@ -126,6 +126,12 @@ return {
           end,
         }
       })
+
+      -- dimmed deprecated suggestions
+      vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", {
+        fg = "#373737",
+        strikethrough = false,
+      })
     end,
   },
 }

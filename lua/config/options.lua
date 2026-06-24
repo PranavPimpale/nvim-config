@@ -1,36 +1,41 @@
 local opt = vim.opt
 
--- tab indentation
+-- Indentation
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.expandtab = true
+
 opt.autoindent = true
 
--- number line
+-- Line Display
 opt.number = true
 opt.cursorline = true
 opt.relativenumber = true
 opt.scrolloff = 3
 
--- showing git changes column only at the changes otherwise turned off
-opt.signcolumn = "auto"
+-- Git Sign Column
+opt.signcolumn = "yes"
 
--- performance
+-- Performance
 opt.updatetime = 50
 opt.timeoutlen = 225
 opt.synmaxcol = 200
 
--- better undo settings
+-- Persistent Undo
 opt.swapfile = false
 opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
--- search settings
+-- Search
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- mouse disabled
+-- Mouse
 vim.opt.mouse = ""
 
--- hide mode from cmdline
+-- CMD Mode Display
 vim.opt.showmode = false

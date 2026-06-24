@@ -51,6 +51,18 @@ return {
         disabled_filetypes = {
           statusline = { "NvimTree" },
         },
+
+        -- space between section c and section x
+        vim.api.nvim_set_hl(0, "StatusLine", {
+          fg = colors.white,
+          bg = colors.black,
+        }),
+
+        -- cmp code suggestion floating window border
+        vim.api.nvim_set_hl(0, "FloatBorder", {
+          fg = colors.white,
+          bg = colors.neovim_background,-- color as the themes bg color code
+        }),
       },
 
       sections = {

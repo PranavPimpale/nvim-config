@@ -3,9 +3,11 @@ local keymap = vim.keymap
 vim.g.mapleader = " "
 keymap.set("n", "<leader>cd", vim.cmd.Ex)
 
--- switching between nvim-tree and buffer
+-- window navigation
 keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
 keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
+keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
+keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
 
 -- switching between buffer tabs 
 keymap.set("n", "<Tab>", ":bnext<CR>", { silent = true })
@@ -64,6 +66,13 @@ keymap.set("n", "<leader>;", function()
   end
 end, { desc = "Toggle Noice" })
 ]]-- 
+
+-- format file
+vim.keymap.set("n", "<leader>cf", function()
+  local view = vim.fn.winsaveview()
+  vim.cmd("silent! normal! gg=G")
+  vim.fn.winrestview(view)
+end, { desc = "Format/reindent buffer (gg=G), preserve cursor view" })
 
 -- ctrl+c to clear the cmdline
 keymap.set('n', '<C-c>', ':echo ""<CR>', { noremap = true, silent = true })
