@@ -1,4 +1,4 @@
-local plugins = require("config.plugins")
+local plugins = require('config.plugins')
 
 return {
   "rcarriga/nvim-notify",

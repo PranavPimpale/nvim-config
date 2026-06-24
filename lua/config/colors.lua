@@ -7,7 +7,7 @@ return {
   violet = '#d183e8',
   grey   = '#282828',
   green  = '#72bf6a',
-  dark   = '#232323',  -- section a, y
+  dark   = '#272727',  -- section a, y, z
   cherry = '#ff5555',
   yellow = '#f1fa8c',
   neovim_background = '#090909',  -- neovim background color

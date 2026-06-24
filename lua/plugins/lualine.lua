@@ -1,4 +1,4 @@
-local plugins = require("config.plugins")
+local plugins = require('config.plugins')
 local colors = require('config.colors')
 
 return {
@@ -113,9 +113,8 @@ return {
           {
             function()
               local date = tostring(os.date("%d %b")):gsub("^0", ""):lower()
-              local time = tostring(os.date("%I:%M %p")):gsub("^0", ""):lower()
 
-              return string.format("%s | %s", date, time)
+              return string.format("%s", date)
             end,
 
             color = {
@@ -127,6 +126,21 @@ return {
 
         lualine_y = {
           {
+            function ()
+              local time = tostring(os.date("%I:%M %p")):gsub("^0", ""):lower()
+
+              return string.format("%s", time)
+            end,
+
+            color = {
+              fg = colors.white,
+              bg = colors.dark,
+            },
+          },
+        },
+
+        lualine_z = {
+          {
             "branch",
             color = {
               fg = colors.white,
@@ -134,8 +148,6 @@ return {
             }
           },
         },
-
-        lualine_z = {},
       },
 
       inactive_sections = {
