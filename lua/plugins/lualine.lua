@@ -38,6 +38,10 @@ return {
         b = { fg = colors.white, bg = colors.black },
         c = { fg = colors.white },
       },
+
+      terminal = {
+        a = { fg = colors.violet, bg = colors.dark, gui = "bold" }
+      },
     }
 
     require("lualine").setup({

@@ -4,7 +4,7 @@ return {
   black  = '#171717',  -- section b, c,space betwen c and x, x
   white  = '#eeeeee',
   red    = '#f94449',
-  violet = '#d183e8',
+  violet = '#9966CB',
   grey   = '#282828',
   green  = '#72bf6a',
   dark   = '#272727',  -- section a, y, z
