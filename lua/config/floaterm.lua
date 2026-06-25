@@ -78,3 +78,6 @@ vim.keymap.set("t", "<Esc>", function()
     term_win = nil
   end
 end, { silent = true })
+
+-- in terminal mode <C-s> enters normal mode, pressing "i" enters insert mode
+vim.keymap.set("t", "<C-s>", [[<C-\><C-n>]], { silent = true })
