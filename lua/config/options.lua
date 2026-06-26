@@ -1,4 +1,4 @@
-local opt = vim.opt
+local opt = vim.o
 
 -- Indentation
 opt.tabstop = 4
@@ -26,7 +26,7 @@ opt.synmaxcol = 200
 opt.swapfile = false
 opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+opt.undofile = true
 
 -- Search
 vim.opt.incsearch = true
