@@ -6,12 +6,6 @@ return {
     end
   },
   {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-    }
-  },
-  {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()

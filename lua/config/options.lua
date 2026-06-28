@@ -39,3 +39,7 @@ vim.opt.mouse = ""
 
 -- CMD Mode Display
 vim.opt.showmode = false
+
+-- line wrap
+vim.opt.wrap = true
+vim.opt.linebreak = true

@@ -57,18 +57,6 @@ return {
 
           ["<C-Space>"] = cmp.mapping.complete(),
 
-          --[[["<Tab>"] = cmp.mapping(function(fallback)
-            local luasnip = require("luasnip")
-
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { "i", "s" }),]]--
-
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -129,7 +117,7 @@ return {
 
       -- dimmed deprecated suggestions
       vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", {
-        fg = "#373737",
+        fg = "#252525",
         strikethrough = false,
       })
     end,

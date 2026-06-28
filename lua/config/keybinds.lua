@@ -35,11 +35,6 @@ keymap.set("i", "<Down>", "<Nop>")
 keymap.set("i", "<Left>", "<Nop>")
 keymap.set("i", "<Right>", "<Nop>")
 
--- Creates properly indented new lines between matching pairs
-keymap.set("i", "<CR>", function()
-  return require("nvim-autopairs").autopairs_cr()
-end, { expr = true })
-
 -- [cmd] :restart
 keymap.set('n', '<leader>re', ':restart<CR>', { noremap = true, silent = true })
 
