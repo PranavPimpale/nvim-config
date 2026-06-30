@@ -19,11 +19,6 @@ keymap.set('i', '<C-j>', '<Down>',  { noremap = true, silent = true })
 keymap.set('i', '<C-k>', '<Up>',    { noremap = true, silent = true })
 keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 
-keymap.set('i', '<A-h>', '<Left>',  { noremap = true, silent = true })
-keymap.set('i', '<A-j>', '<Down>',  { noremap = true, silent = true })
-keymap.set('i', '<A-k>', '<Up>',    { noremap = true, silent = true })
-keymap.set('i', '<A-l>', '<Right>', { noremap = true, silent = true })
-
 -- disabling arrow keys of keyboard in nvim
 keymap.set("n", "<Up>", "<Nop>")
 keymap.set("n", "<Down>", "<Nop>")
@@ -41,26 +36,9 @@ keymap.set('n', '<leader>re', ':restart<CR>', { noremap = true, silent = true })
 -- [cmd] :Lazy
 keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
 
--- [cmd] :w
-keymap.set('n', '<A-s>', ':w<CR>', { noremap = true, silent = true })
-
 -- yank/paste to clipboard
 keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
 keymap.set({ "n", "v" }, "<leader>p", '"+p', { silent = true, desc = "Paste from system clipboard" })
-
---[[ uncomment this when noice plugin is enabled 
--- Noice cmdline Enable/Disable keybinds
-local noice_enabled = true
-keymap.set("n", "<leader>;", function()
-  if noice_enabled then
-    vim.cmd("NoiceDisable")
-    noice_enabled = false
-  else
-    vim.cmd("NoiceEnable")
-    noice_enabled = true
-  end
-end, { desc = "Toggle Noice" })
-]]-- 
 
 -- format file
 vim.keymap.set("n", "<leader>cf", function()
