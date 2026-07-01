@@ -14,6 +14,11 @@ return {
         require("telescope.builtin").find_files(
           require("telescope.themes").get_dropdown({
             previewer = false,
+            layout_config = {
+              width = 0.6,
+              height = 0.7,
+            },
+            selection_caret = "➜ ",
           })
         )
       end)
@@ -22,6 +27,10 @@ return {
         require("telescope.builtin").buffers(
           require("telescope.themes").get_dropdown({
             previewer = false,
+            layout_config = {
+              width = 0.7,
+              height = 0.7,
+            },
           })
         )
       end)
