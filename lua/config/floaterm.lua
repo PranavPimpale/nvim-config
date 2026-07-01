@@ -1,10 +1,10 @@
 local colors = require('config.colors')
 local term_buf = nil
 local term_win = nil
-local width = 60
-local height = 13
+local width = 55
+local height = 12
 
-local row = math.floor((vim.o.lines - height) / 2) - 1
+local row = math.floor((vim.o.lines - height) / 2) - 2
 local col = math.floor((vim.o.columns - width) / 2)
 
 local function create_terminal()
