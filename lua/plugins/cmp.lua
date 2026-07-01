@@ -29,7 +29,7 @@ return {
           debounce = 20,
           throttle = 10,
           fetching_timeout = 100,
-          max_view_entries = 7,
+          max_view_entries = 10,
         },
 
         completion = {
