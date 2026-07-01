@@ -1,4 +1,5 @@
 local plugins = require('config.plugins')
+local colors = require('config.colors')
 
 return {
   {
@@ -113,6 +114,12 @@ return {
             return vim_item
           end,
         }
+      })
+
+      -- cmp code suggestion floating window border
+      vim.api.nvim_set_hl(0, "FloatBorder", {
+        fg = colors.white,
+        bg = nil, -- color as the themes bg color
       })
 
       -- dimmed deprecated suggestions

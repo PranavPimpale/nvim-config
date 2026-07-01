@@ -29,17 +29,17 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
 -- Search
-vim.opt.incsearch = true
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.incsearch = true
+opt.hlsearch = true
+opt.ignorecase = true
+opt.smartcase = true
 
 -- Mouse
-vim.opt.mouse = ""
+opt.mouse = ""
 
 -- CMD Mode Display
-vim.opt.showmode = false
+opt.showmode = false
 
 -- line wrap
-vim.opt.wrap = true
-vim.opt.linebreak = true
+opt.wrap = true
+opt.linebreak = true

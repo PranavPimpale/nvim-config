@@ -11,6 +11,7 @@ return {
         bold = false,
         italic = false,
         on_highlights = function(hl, colors)
+          -- disables the ~ from the remaining lines (dont change anything)
           hl.EndOfBuffer = {
             fg = colors.bg,
           }
@@ -21,8 +22,8 @@ return {
           }
         end,
         colors = {
-          bg = bg.neovim_background,-- previous : #101010
-          inactiveBg = '#1c1c24',
+          bg = bg.neovim_background,
+          inactiveBg = bg.black,
           fg = '#cdcdcd',
           floatBorder = '#878787',
           line = '#101010',
