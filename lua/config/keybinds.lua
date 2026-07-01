@@ -54,3 +54,8 @@ keymap.set('n', '<C-c>', ':echo ""<CR>', { noremap = true, silent = true })
 keymap.set("n", "<leader>n", function()
   vim.o.hlsearch = not vim.o.hlsearch
 end, { desc = "Toggle search highlight" })
+
+-- better pasting
+vim.keymap.set("v", "p", "p`]")
+vim.keymap.set("n", "p", "p`]")
+vim.keymap.set("n", "P", "P`]")
