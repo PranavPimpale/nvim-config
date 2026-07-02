@@ -50,6 +50,9 @@ end, { desc = "Format/reindent buffer (gg=G), preserve cursor view" })
 -- ctrl+c to clear the cmdline
 keymap.set('n', '<C-c>', ':echo ""<CR>', { noremap = true, silent = true })
 
+-- ctrl+i for backspace
+vim.keymap.set("i", "<C-b>", "<BS>", { noremap = true })
+
 -- noggle :noh
 keymap.set("n", "<leader>n", function()
   vim.o.hlsearch = not vim.o.hlsearch
