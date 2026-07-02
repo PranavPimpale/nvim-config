@@ -50,8 +50,11 @@ end, { desc = "Format/reindent buffer (gg=G), preserve cursor view" })
 -- ctrl+c to clear the cmdline
 keymap.set('n', '<C-c>', ':echo ""<CR>', { noremap = true, silent = true })
 
--- ctrl+i for backspace
-vim.keymap.set("i", "<C-b>", "<BS>", { noremap = true })
+-- Alt+l to hit enter
+keymap.set("i", "<M-l>", "<CR>", { noremap = true, silent = true, desc = "Alt+L -> Enter" })
+
+-- Alt+h to hit backspace
+keymap.set("i", "<M-h>", "<BS>", { noremap = true, silent = true, desc = "Alt+H -> Backspace" })
 
 -- noggle :noh
 keymap.set("n", "<leader>n", function()
