@@ -30,7 +30,7 @@ return {
           remove_blankline_trail = false,
         },
         scope = {
-          enabled = true,
+          enabled = false,
           -- to disable function underlines
           show_start = false,
           show_end = false,

@@ -53,8 +53,8 @@ keymap.set('n', '<C-c>', ':echo ""<CR>', { noremap = true, silent = true })
 -- Alt+l to hit enter
 keymap.set("i", "<M-l>", "<CR>", { noremap = true, silent = true, desc = "Alt+L -> Enter" })
 
--- Alt+h to hit backspace
-keymap.set("i", "<M-h>", "<BS>", { noremap = true, silent = true, desc = "Alt+H -> Backspace" })
+-- Alt+j to hit backspace
+keymap.set("i", "<M-j>", "<BS>", { noremap = true, silent = true, desc = "Alt+H -> Backspace" })
 
 -- noggle :noh
 keymap.set("n", "<leader>n", function()
