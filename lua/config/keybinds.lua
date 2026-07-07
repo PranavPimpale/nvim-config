@@ -65,3 +65,6 @@ end, { desc = "Toggle search highlight" })
 vim.keymap.set("v", "p", "p`]")
 vim.keymap.set("n", "p", "p`]")
 vim.keymap.set("n", "P", "P`]")
+
+-- disabled pasting with 'p' in select mode
+vim.keymap.set("s", "p", "p", { noremap = true })
