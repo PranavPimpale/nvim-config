@@ -3,10 +3,10 @@ local term_win = nil
 local width = 55
 local height = 12
 
-local row = math.floor((vim.o.lines - height) / 2) - 2
-local col = math.floor((vim.o.columns - width) / 2)
-
 local function create_terminal()
+  local row = math.floor((vim.o.lines - height) / 2) - 2
+  local col = math.floor((vim.o.columns - width) / 2)
+
   term_buf = vim.api.nvim_create_buf(false, true)
 
   local current_file = vim.fn.expand("%:t")
@@ -40,6 +40,9 @@ local function toggle_terminal()
   end
 
   if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+    local row = math.floor((vim.o.lines - height) / 2) - 2
+    local col = math.floor((vim.o.columns - width) / 2)
+
     term_win = vim.api.nvim_open_win(term_buf, true, {
       relative = "editor",
       width = width,

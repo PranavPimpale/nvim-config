@@ -25,7 +25,11 @@ opt.synmaxcol = 200
 -- Persistent Undo
 opt.swapfile = false
 opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+local undodir = os.getenv("HOME") .. "/.vim/undodir"
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p")
+end
+opt.undodir = undodir
 opt.undofile = true
 
 -- Search

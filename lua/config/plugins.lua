@@ -1,14 +1,17 @@
 -- lua/config/plugins.lua
 
 return {
+  autopair = true,
   blankline = true,
   cmp = true,
+  gitsigns = true,
+  hop = true,
   lsp = true,
   lualine = true,
+  mini = true,
   neoscroll = true,
-  noice = true,
-  notify = true,
+  highlight = true,
   telescope = true,
-  toggleterm = true,
+  tiny = true,
   treesitter = true,
 }

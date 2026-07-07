@@ -21,6 +21,7 @@ return {
         "query",
         "vimdoc",
         "json",
+        "gitignore",
         -- "javascript",
         -- "typescript",
         -- "tsx",
@@ -33,13 +34,28 @@ return {
         -- "svelte",
         -- "graphql",
         -- "dockerfile",
-        -- "gitignore",
         -- "java",
         -- "rust",
         -- "ron",
       }
 
-      treesitter.install(ensure_installed)
+      local installed = treesitter.get_installed and treesitter.get_installed() or {}
+
+      local to_install = vim.tbl_filter(function(lang)
+        return not vim.tbl_contains(installed, lang)
+      end, ensure_installed)
+
+      local to_uninstall = vim.tbl_filter(function(lang)
+        return not vim.tbl_contains(ensure_installed, lang)
+      end, installed)
+
+      if #to_install > 0 then
+        treesitter.install(to_install)
+      end
+
+      if #to_uninstall > 0 then
+        treesitter.uninstall(to_uninstall)
+      end
 
       -- Safe FileType autocmd for highlighting + indentation
       vim.api.nvim_create_autocmd("FileType", {
@@ -70,7 +86,7 @@ return {
   -- NOTE: js,ts,jsx,tsx Auto Close Tags
   {
     "windwp/nvim-ts-autotag",
-    enabled = true,
+    enabled = plugins.ts_autotag,
     ft = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
     config = function()
       require("nvim-ts-autotag").setup({

@@ -1,4 +1,4 @@
-local bg = require('config.colors')
+local colors = require('config.colors')
 
 return {
   {
@@ -10,10 +10,10 @@ return {
         transparent = false,
         bold = false,
         italic = false,
-        on_highlights = function(hl, colors)
+        on_highlights = function(hl, color)
           -- disables the ~ from the remaining lines (dont change anything)
           hl.EndOfBuffer = {
-            fg = colors.bg,
+            fg = color.bg,
           }
           hl.MatchParen = {
             fg = "#E55451",
@@ -22,29 +22,29 @@ return {
           }
         end,
         colors = {
-          bg = bg.neovim_background,
-          inactiveBg = bg.black,
-          fg = '#cdcdcd',
-          floatBorder = '#878787',
-          line = '#101010',
-          comment = '#606079',
-          builtin = '#b4d4cf',
-          func = '#F78C6C',
-          string = '#b3cf99',
-          number = '#e0a363',
-          property = '#c3c3d5',
-          constant = '#aeaed1',
-          parameter = '#bb9dbd',
-          --visual = '#B388FF',
-          error = '#f94449',
-          warning = '#f3be7c',
-          hint = '#7e98e8',
-          operator = '#90a0b5',
-          keyword = '#6e94b2',
-          type = '#9bb4bc',
-          search = '#405065',
-          plus = '#7fa563',
-          delta = '#f3be7c',
+          bg = colors.bg,
+          inactiveBg = colors.inactiveBg,
+          fg = colors.fg,
+          floatBorder = colors.floatBorder,
+          line = colors.line,
+          comment = colors.comment,
+          builtin = colors.builtin,
+          func = colors.func,
+          string = colors.string,
+          number = colors.number,
+          property = colors.property,
+          constant = colors.constant,
+          parameter = colors.parameter,
+          --visual = colors.visual,
+          error = colors.error,
+          warning = colors.warning,
+          hint = colors.hint,
+          operator = colors.operator,
+          keyword = colors.keyword,
+          type = colors.type,
+          search = colors.search,
+          plus = colors.plus,
+          delta = colors.delta,
         },
       })
     end,

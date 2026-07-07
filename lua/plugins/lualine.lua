@@ -44,6 +44,12 @@ return {
       },
     }
 
+    -- space between section c and section x
+    vim.api.nvim_set_hl(0, "StatusLine", {
+      fg = colors.white,
+      bg = colors.black,
+    })
+
     require("lualine").setup({
       options = {
         theme = bubbles_theme,
@@ -55,12 +61,6 @@ return {
         disabled_filetypes = {
           statusline = { "NvimTree" },
         },
-
-        -- space between section c and section x
-        vim.api.nvim_set_hl(0, "StatusLine", {
-          fg = colors.white,
-          bg = colors.black,
-        }),
       },
 
       sections = {

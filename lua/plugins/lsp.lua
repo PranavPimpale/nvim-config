@@ -54,7 +54,7 @@ return {
 
       -- Lsp diagnostic configuration
       vim.diagnostic.config({
-        virtual_text = { prefix = "<" },
+        virtual_text = false,-- { prefix = "<" },
         severity_sort = true,
         update_in_insert = false, -- live error checking in insert mode
         signs = false,
@@ -65,6 +65,9 @@ return {
           source = "if_many",
         },
       })
+
+      -- Enable/Disable LSP Diagnostics
+      vim.diagnostic.enable(true)
     end,
   },
 }
