@@ -81,5 +81,5 @@ vim.keymap.set("t", "<Esc>", function()
   end
 end, { silent = true })
 
--- in terminal mode <C-s> enters normal mode, pressing "i" enters insert mode
+-- in terminal mode <C-n> enters normal mode, pressing "i" enters insert mode
 vim.keymap.set("t", "<C-n>", [[<C-\><C-n>]], { silent = true })

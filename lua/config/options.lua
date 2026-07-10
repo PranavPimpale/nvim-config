@@ -47,3 +47,18 @@ opt.showmode = false
 -- line wrap
 opt.wrap = true
 opt.linebreak = true
+
+-- netrw
+vim.g.netrw_banner = 0         -- Hide banner
+vim.g.netrw_liststyle = 3      -- Tree view
+vim.g.netrw_browse_split = 0   -- Open in current window
+vim.g.netrw_altv = 1           -- Vertical split to the right
+vim.g.netrw_winsize = 25       -- Explorer width (%)
+vim.g.netrw_keepdir = 0        -- Follow current directory
+
+vim.cmd([[
+  hi netrwDir guifg=#7aa2f7 gui=bold
+  hi netrwClassify guifg=#565f89
+  hi netrwExe guifg=#9ece6a
+  hi netrwSymLink guifg=#7dcfff
+]])
