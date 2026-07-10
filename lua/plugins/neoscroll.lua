@@ -33,10 +33,10 @@ return {
         neoscroll.ctrl_f({ duration = 100, easing = "circular" })
       end,
       ["<C-y>"] = function()
-        neoscroll.scroll(-0.1, { move_cursor = false, duration = 100 })
+        neoscroll.scroll(-0.2, { move_cursor = false, duration = 100 })
       end,
       ["<C-e>"] = function()
-        neoscroll.scroll(0.1, { move_cursor = false, duration = 100 })
+        neoscroll.scroll(0.2, { move_cursor = false, duration = 100 })
       end,
     }
 
