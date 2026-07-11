@@ -4,12 +4,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     enabled = plugins.lsp,
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-    },
 
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       local on_attach = function(_, bufnr)
         local opts = { buffer = bufnr, silent = true }
