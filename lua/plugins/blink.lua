@@ -1,12 +1,12 @@
-local plugins = require('config.plugins')
-local colors = require('config.colors')
+local plugins = require("config.plugins")
+local colors = require("config.colors")
 
 return {
   {
     "saghen/blink.cmp",
     enabled = plugins.blink,
-    event = "InsertEnter",
-    version = "1.*", -- pulls prebuilt Rust binary, no `build` step needed
+    event = "VeryLazy",
+    version = "1.*",
 
     dependencies = {
       "L3MON4D3/LuaSnip",
@@ -14,7 +14,13 @@ return {
     },
 
     opts = {
-      snippets = { preset = "luasnip" },
+      appearance = {
+        nerd_font_variant = "mono",
+      },
+
+      snippets = {
+        preset = "luasnip",
+      },
 
       signature = {
         enabled = true,
@@ -23,8 +29,12 @@ return {
         },
         window = {
           border = "rounded",
-          show_documentation = true,
+          show_documentation = false,
         },
+      },
+
+      cmdline = {
+        enabled = true,
       },
 
       keymap = {
@@ -39,34 +49,56 @@ return {
 
         ["<C-n>"] = { "snippet_forward" },
         ["<C-v>"] = { "snippet_backward" },
-        ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+        ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
       },
 
       completion = {
-        list = { selection = { preselect = false, auto_insert = false } },
+        trigger = {
+          show_on_trigger_character = true,
+          show_on_insert_on_trigger_character = true,
+        },
+
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = false,
+          },
+        },
 
         menu = {
           border = "rounded",
-          max_height = 7,
-          min_width = 5,
+          max_height = 10,
+          min_width = 10,
           scrollbar = false,
 
           draw = {
-            columns = { { "label", "label_description", gap = 1 }, { "source_name" } },
+            columns = {
+              { "label", "label_description", gap = 1 },
+              { "source_name" },
+            },
+
             components = {
               label = {
-                width = { fill = true, min = 15, max = 35 },
+                width = {
+                  fill = true,
+                  min = 15,
+                  max = 35,
+                },
               },
+
               source_name = {
                 width = { max = 7 },
+
                 text = function(ctx)
                   local labels = {
+                    lsp = "[Lsp]",
                     snippets = "[Snip]",
-                    lsp = "[LSP]",
                     buffer = "[Buf]",
                     path = "[Path]",
                   }
-                  return labels[ctx.source_id] or ("[" .. ctx.source_name .. "]")
+
+                  return labels[ctx.source_id]
+                    or ("[" .. ctx.source_name .. "]")
                 end,
               },
             },
@@ -75,29 +107,52 @@ return {
 
         documentation = {
           auto_show = false,
-          window = { border = "rounded" },
+          window = {
+            border = "rounded",
+          },
         },
       },
 
       sources = {
-        default = { "snippets", "lsp", "buffer", "path" },
+        default = {
+          "lsp",
+          "snippets",
+          "buffer",
+          "path",
+        },
 
         providers = {
-          snippets = { score_offset = 100 },
           lsp = {
-            score_offset = 0,
+            score_offset = 100,
+
             transform_items = function(_, items)
               return vim.tbl_filter(function(item)
                 return not item.deprecated
               end, items)
             end,
           },
-          path = { score_offset = -50 },
-          buffer = { score_offset = -100 },
+
+          snippets = {
+            score_offset = 100,
+          },
+
+          path = {
+            score_offset = -10,
+          },
+
+          buffer = {
+            score_offset = -100,
+          },
         },
       },
 
-      fuzzy = { implementation = "prefer_rust_with_warning" },
+      fuzzy = {
+        implementation = "prefer_rust_with_warning",
+
+        frecency = {
+          enabled = false,
+        },
+      },
     },
 
     config = function(_, opts)

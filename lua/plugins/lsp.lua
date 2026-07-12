@@ -62,9 +62,6 @@ return {
           source = "if_many",
         },
       })
-
-      -- Enable/Disable LSP Diagnostics
-      vim.diagnostic.enable(true)
     end,
   },
 }
