@@ -45,8 +45,10 @@ return {
         window = {
           completion = cmp.config.window.bordered({
             border = "rounded",
-            max_height = 7,
+            max_height = 8,
             scrollbar = false,
+            side_padding = 1,
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CmpSel,Search:None",
           }),
         },
 
@@ -113,10 +115,10 @@ return {
           format = function(entry, vim_item)
             vim_item.kind = ""
             vim_item.menu = ({
-              luasnip = "[Snip]",
-              nvim_lsp = "[LSP]",
-              buffer = "[Buf]",
-              path = "[Path]",
+              luasnip = "[Snip] ",
+              nvim_lsp = "[Lsp]  ",
+              buffer = "[Buf]  ",
+              path = "[Path] ",
             })[entry.source.name]
 
             -- Remove the long detail text
@@ -145,7 +147,7 @@ return {
         bg = nil,
       })
 
-      vim.api.nvim_set_hl(0, "Visual", {
+      vim.api.nvim_set_hl(0, "CmpSel", {
         fg = nil,
         bg = colors.select,
       })
