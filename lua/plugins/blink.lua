@@ -53,14 +53,19 @@ return {
       },
 
       completion = {
+        keyword = {
+          range = 'full',
+        },
+
         trigger = {
+          show_on_keyword = true,
           show_on_trigger_character = true,
           show_on_insert_on_trigger_character = true,
         },
 
         list = {
           selection = {
-            preselect = false,
+            preselect = true,
             auto_insert = false,
           },
         },
@@ -148,9 +153,9 @@ return {
 
       fuzzy = {
         implementation = "prefer_rust_with_warning",
-
         frecency = {
-          enabled = false,
+          enabled = true,
+          unsafe_no_lock = true,  -- required on Termux, disables flock+fsync on the db
         },
       },
     },
@@ -166,7 +171,7 @@ return {
         })
 
         vim.api.nvim_set_hl(0, "BlinkCmpMenu", {
-          bg = colors.bg,
+          bg = nil,
         })
 
         vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", {

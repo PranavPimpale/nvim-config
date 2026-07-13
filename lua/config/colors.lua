@@ -2,6 +2,7 @@ return {
   blue   = '#80a0ff',
   cyan   = '#79dac8',
   black  = '#171717',  -- section b, c,space betwen c and x, x
+  select = '#232323', -- visual selections & nvim-cmp selection
   white  = '#eeeeee',
   red    = '#f94449',
   violet = '#9966CB',
@@ -10,12 +11,13 @@ return {
   dark   = '#272727',  -- section a, y, z
   cherry = '#ff5555',
   yellow = '#f1fa8c',
+  itemAbbr = '#cccccc', -- for nvim-cmp
 
   -- theme colors
   bg = '#090909',  -- neovim background color
   inactiveBg = '#171717',
   fg = '#cdcdcd',
-  floatBorder = '#878787',
+  floatBorder = '#eeeeee',
   line = '#101010',
   comment = '#606079',
   builtin = '#b4d4cf',
