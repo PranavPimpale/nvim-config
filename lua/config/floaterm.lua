@@ -1,3 +1,4 @@
+local colors = require('config.colors')
 local term_buf = nil
 local term_win = nil
 local width = 55
@@ -28,6 +29,11 @@ local function create_terminal()
   vim.cmd("startinsert")
 
   vim.api.nvim_set_hl(0, "NormalFloat", {
+    bg = nil,
+  })
+
+  vim.api.nvim_set_hl(0, "FloatBorder", {
+    fg = colors.white,
     bg = nil,
   })
 end
