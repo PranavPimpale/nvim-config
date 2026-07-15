@@ -47,6 +47,18 @@ return {
           delta = colors.delta,
         },
       })
+
+      -- set theme
+      vim.cmd.colorscheme("vague")
+
+      -- custom select highlights
+      vim.api.nvim_set_hl(0, "Search", {
+        bg = "#303030",
+      })
+
+      vim.api.nvim_set_hl(0, "IncSearch", {
+        bg = "#505050",
+      })
     end,
   },
 
