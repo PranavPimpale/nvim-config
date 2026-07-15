@@ -15,15 +15,6 @@ api.nvim_create_autocmd("FileType", {
   end,
 })
 
---[[ format after save
-api.nvim_create_autocmd("BufWritePre", {
-  callback = function()
-    local view = vim.fn.winsaveview()
-    vim.cmd("silent! normal! gg=G")
-    vim.fn.winrestview(view)
-  end,
-})]]--
-
 -- 3 sec only for saved message in cmdline
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()
