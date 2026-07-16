@@ -74,7 +74,13 @@ return {
     priority = 1000,
     config = function()
       require("kanagawa").setup({
-        -- transparent = true,
+        overrides = function()
+          return {
+            CursorLine = {
+              bg = "#101010",
+            },
+          }
+        end,
 
         statementStyle = { bold = false },
         keywordStyle   = { italic = false },

@@ -32,15 +32,6 @@ return {
 
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
-      vim.api.nvim_set_hl(0, "NormalFloat", {
-        bg = colors.bg,
-      })
-
-      vim.api.nvim_set_hl(0, "FloatBorder", {
-        fg = colors.white,
-        bg = colors.bg,
-      })
-
       -- Disable Neovim's built-in inline text
       vim.diagnostic.config({
         virtual_text = false,

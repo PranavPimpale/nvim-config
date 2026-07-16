@@ -1,4 +1,3 @@
-local colors = require('config.colors')
 local term_buf = nil
 local term_win = nil
 local width = 55
