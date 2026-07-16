@@ -6,15 +6,8 @@ return {
     enabled = plugins.lsp,
 
     config = function()
-      local capabilities
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      if plugins.blink then
-        capabilities = require("blink.cmp").get_lsp_capabilities()
-      elseif plugins.cmp then
-        capabilities = require("cmp_nvim_lsp").default_capabilities()
-      else
-        capabilities = vim.lsp.protocol.make_client_capabilities()
-      end
       local on_attach = function(_, bufnr)
         local opts = { buffer = bufnr, silent = true }
 

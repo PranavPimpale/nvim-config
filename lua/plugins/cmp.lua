@@ -142,11 +142,6 @@ return {
       })
 
       -- coloring stuffs
-      vim.api.nvim_set_hl(0, "FloatBorder", {
-        fg = colors.white,
-        bg = nil,
-      })
-
       vim.api.nvim_set_hl(0, "CmpSel", {
         fg = nil,
         bg = colors.select,
