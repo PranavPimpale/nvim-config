@@ -1,9 +1,6 @@
 local plugins = require('config.plugins')
 local colors = require('config.colors')
 
--- "vague"/"kanagawa"
-local theme = "kanagawa"
-
 return {
   {
     "vague2k/vague.nvim",
@@ -53,7 +50,7 @@ return {
       })
 
       -- set theme
-      if theme == "vague" then
+      if plugins.theme == "vague" then
         vim.cmd.colorscheme("vague")
       end
 
@@ -100,7 +97,7 @@ return {
       })
 
       -- set theme
-      if theme == "kanagawa" then
+      if plugins.theme == "kanagawa" then
         vim.cmd.colorscheme("kanagawa-dragon")
       end
 
