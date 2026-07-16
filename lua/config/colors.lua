@@ -34,7 +34,7 @@ return {
   operator = '#90a0b5',
   keyword = '#6e94b2',
   type = '#9bb4bc',
-  search = '#405065',
+  search = '#405258',
   plus = '#7fa563',
   delta = '#f3be7c',
 }

@@ -1,3 +1,4 @@
+local plugins = require('config.plugins')
 local colors = require('config.colors')
 
 return {
@@ -60,6 +61,14 @@ return {
         bg = "#505050",
       })
     end,
+  },
+
+  {
+    'brenoprata10/nvim-highlight-colors',
+    enabled = plugins.highlight,
+    config = function()
+      require('nvim-highlight-colors').setup({})
+    end
   },
 
   --[[ theme : Mountain {
