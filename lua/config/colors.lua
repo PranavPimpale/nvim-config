@@ -13,7 +13,7 @@ return {
   yellow = '#f1fa8c',
   itemAbbr = '#cccccc', -- for nvim-cmp
 
-  -- theme colors
+  -- [THEME] : "vague"
   bg = '#090909',  -- neovim background color
   inactiveBg = '#171717',
   fg = '#cdcdcd',

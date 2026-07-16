@@ -1,6 +1,9 @@
 local plugins = require('config.plugins')
 local colors = require('config.colors')
 
+-- "vague"/"kanagawa"
+local theme = "kanagawa"
+
 return {
   {
     "vague2k/vague.nvim",
@@ -50,7 +53,9 @@ return {
       })
 
       -- set theme
-      vim.cmd.colorscheme("vague")
+      if theme == "vague" then
+        vim.cmd.colorscheme("vague")
+      end
 
       -- custom select highlights
       vim.api.nvim_set_hl(0, "Search", {
@@ -64,24 +69,44 @@ return {
   },
 
   {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("kanagawa").setup({
+        -- transparent = true,
+
+        statementStyle = { bold = false },
+        keywordStyle   = { italic = false },
+        commentStyle   = { italic = false },
+        functionStyle  = { bold = false },
+        typeStyle      = { bold = false },
+
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = "none",
+              },
+            },
+          },
+        },
+      })
+
+      -- set theme
+      if theme == "kanagawa" then
+        vim.cmd.colorscheme("kanagawa-dragon")
+      end
+
+    end,
+  },
+
+
+  {
     'brenoprata10/nvim-highlight-colors',
     enabled = plugins.highlight,
     config = function()
       require('nvim-highlight-colors').setup({})
     end
   },
-
-  --[[ theme : Mountain {
-    "thepogsupreme/mountain.nvim",
-    lazy = false,
-    priority = 100,
-    config = function()
-    end,
-  },]]--
-
-  --[[ theme : nightfox {
-    "EdenEast/nightfox.nvim",
-    lazy = false,
-    priority = 100,
-  },]]--
 }

@@ -2,6 +2,7 @@
 plugin/
 snippets/
 pack/
+dap.lua
 
 # LSP logs
 lsp.log

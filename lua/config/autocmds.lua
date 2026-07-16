@@ -50,3 +50,34 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ timeout = 200, visual = true })
   end,
 })
+
+-- transparent background, no matter what theme
+local transparent_groups = {
+  "Normal",
+  "NormalFloat",
+  "FloatBorder",
+
+  "TelescopeNormal",
+  "TelescopeBorder",
+  "TelescopePromptNormal",
+  "TelescopePromptBorder",
+  "TelescopePromptTitle",
+  "TelescopeResultsNormal",
+  "TelescopeResultsBorder",
+  "TelescopeResultsTitle",
+  "TelescopePreviewNormal",
+  "TelescopePreviewBorder",
+  "TelescopePreviewTitle",
+}
+
+local function transparent_bg()
+  for _, group in ipairs(transparent_groups) do
+    vim.api.nvim_set_hl(0, group, { bg = "NONE" })
+  end
+end
+
+transparent_bg()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = transparent_bg,
+})

@@ -5,7 +5,7 @@ local width = 55
 local height = 12
 
 local function create_terminal()
-  local row = math.floor((vim.o.lines - height) / 2) - 1
+  local row = math.floor((vim.o.lines - height) / 2) - 2
   local col = math.floor((vim.o.columns - width) / 2)
 
   term_buf = vim.api.nvim_create_buf(false, true)
@@ -27,15 +27,6 @@ local function create_terminal()
   })
 
   vim.cmd("startinsert")
-
-  vim.api.nvim_set_hl(0, "NormalFloat", {
-    bg = nil,
-  })
-
-  vim.api.nvim_set_hl(0, "FloatBorder", {
-    fg = colors.floatBorder,
-    bg = nil,
-  })
 end
 
 local function toggle_terminal()
@@ -46,7 +37,7 @@ local function toggle_terminal()
   end
 
   if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
-    local row = math.floor((vim.o.lines - height) / 2) - 1
+    local row = math.floor((vim.o.lines - height) / 2) - 2
     local col = math.floor((vim.o.columns - width) / 2)
 
     term_win = vim.api.nvim_open_win(term_buf, true, {
