@@ -81,3 +81,26 @@ transparent_bg()
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = transparent_bg,
 })
+
+-- remove trailing spaces after saving
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    local view = vim.fn.winsaveview()
+
+    vim.cmd([[%s/\s\+$//e]])
+
+    vim.fn.winrestview(view)
+  end,
+})
+
+-- open help in vertical split
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
+	command = "wincmd L",
+})
+
+-- auto resize splits when the terminal's window is resized
+vim.api.nvim_create_autocmd("VimResized", {
+	command = "wincmd =",
+})
