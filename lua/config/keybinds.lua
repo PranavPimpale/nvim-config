@@ -9,7 +9,7 @@ keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
 keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
 keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
 
--- switching between buffer tabs 
+-- switching between buffer tabs
 keymap.set("n", "<Tab>", ":bnext<CR>", { silent = true })
 keymap.set("n", "<S-Tab>", ":bprevious<CR>", { silent = true })
 

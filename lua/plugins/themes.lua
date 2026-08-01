@@ -49,11 +49,6 @@ return {
         },
       })
 
-      -- set theme
-      if plugins.theme == "vague" then
-        vim.cmd.colorscheme("vague")
-      end
-
       -- custom select highlights
       vim.api.nvim_set_hl(0, "Search", {
         bg = "#303030",
@@ -95,15 +90,8 @@ return {
           },
         },
       })
-
-      -- set theme
-      if plugins.theme == "kanagawa" then
-        vim.cmd.colorscheme("kanagawa-dragon")
-      end
-
     end,
   },
-
 
   {
     'brenoprata10/nvim-highlight-colors',
