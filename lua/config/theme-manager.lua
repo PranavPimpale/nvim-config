@@ -78,7 +78,7 @@ function M.pick()
 
       sorter = conf.generic_sorter({}),
 
-      attach_mappings = function(prompt_bufnr, map)
+      attach_mappings = function(prompt_bufnr)
         local function preview_theme()
           local entry = action_state.get_selected_entry()
           if entry then

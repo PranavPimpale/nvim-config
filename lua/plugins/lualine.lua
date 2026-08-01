@@ -8,47 +8,43 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
 
   config = function ()
-    local bubbles_theme = {
-      normal = {
-        a = { fg = colors.red, bg = colors.dark, gui = "bold" },
-        b = { fg = colors.white, bg = colors.grey },
-        c = { fg = colors.white },
-
-        x = { fg = colors.white, bg = colors.grey },
-      },
-
-      insert = {
-        a = { fg = colors.blue, bg = colors.dark, gui = "bold" },
-      },
-
-      visual = {
-        a = { fg = colors.cyan, bg = colors.dark, gui = "bold" },
-      },
-
-      command = {
-        a = { fg = colors.green, bg = colors.dark, gui = "bold" },
-      },
-
-      replace = {
-        a = { fg = colors.white, bg = colors.dark, gui = "bold"},
-      },
-
-      inactive = {
-        a = { fg = colors.violet, bg = colors.dark, gui = "bold" },
-        b = { fg = colors.white, bg = colors.black },
-        c = { fg = colors.white },
-      },
-
-      terminal = {
-        a = { fg = colors.violet, bg = colors.dark, gui = "bold" }
-      },
+    local common = {
+      b = { fg = colors.white, bg = colors.grey },
+      c = { fg = colors.white, bg = colors.black },
+      x = { fg = colors.white, bg = colors.black },
+      y = { fg = colors.white, bg = colors.dark },
+      z = { fg = colors.white, bg = colors.dark },
     }
 
-    -- space between section c and section x
-    vim.api.nvim_set_hl(0, "StatusLine", {
-      fg = colors.white,
-      bg = colors.black,
-    })
+    local bubbles_theme = {
+      normal = vim.tbl_extend("force", common, {
+        a = { fg = colors.red, bg = colors.dark, gui = "bold" },
+      }),
+
+      insert = vim.tbl_extend("force", common, {
+        a = { fg = colors.blue, bg = colors.dark, gui = "bold" },
+      }),
+
+      visual = vim.tbl_extend("force", common, {
+        a = { fg = colors.cyan, bg = colors.dark, gui = "bold" },
+      }),
+
+      command = vim.tbl_extend("force", common, {
+        a = { fg = colors.green, bg = colors.dark, gui = "bold" },
+      }),
+
+      replace = vim.tbl_extend("force", common, {
+        a = { fg = colors.white, bg = colors.dark, gui = "bold" },
+      }),
+
+      terminal = vim.tbl_extend("force", common, {
+        a = { fg = colors.violet, bg = colors.dark, gui = "bold" },
+      }),
+
+      inactive = vim.tbl_extend("force", common, {
+        a = { fg = colors.violet, bg = colors.dark, gui = "bold" },
+      }),
+    }
 
     require("lualine").setup({
       options = {
