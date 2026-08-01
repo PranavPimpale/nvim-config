@@ -4,7 +4,8 @@ local theme_file = vim.fn.stdpath("data") .. "/theme.txt"
 
 local themes = {
   "vague",
-  "kanagawa",
+  "kanagawa-dragon",
+  "kanagawa-wave",
 }
 
 local function read_saved_theme()
@@ -53,11 +54,62 @@ function M.save(theme)
 end
 
 function M.pick()
-  vim.ui.select(themes, { prompt = "Choose Colorscheme" }, function(choice)
-    if choice then
-      M.save(choice)
-    end
-  end)
+  local pickers = require("telescope.pickers")
+  local finders = require("telescope.finders")
+  local conf = require("telescope.config").values
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+  local themes_ui = require("telescope.themes")
+
+  pickers.new(themes_ui.get_dropdown({
+    previewer = false,
+    layout_config = {
+      width = 0.25,
+      height = 0.9,
+      anchor = "E",
+    },
+    selection_caret = "➜ ",
+  }), {
+      prompt_title = "Colorschemes",
+
+      finder = finders.new_table({
+        results = themes,
+      }),
+
+      sorter = conf.generic_sorter({}),
+
+      attach_mappings = function(prompt_bufnr, map)
+        local function preview_theme()
+          local entry = action_state.get_selected_entry()
+          if entry then
+            pcall(vim.cmd.colorscheme, entry[1])
+          end
+        end
+
+        actions.move_selection_next:enhance({
+          post = function()
+            vim.schedule(preview_theme)
+          end,
+        })
+
+        actions.move_selection_previous:enhance({
+          post = function()
+            vim.schedule(preview_theme)
+          end,
+        })
+
+        actions.select_default:replace(function()
+          local entry = action_state.get_selected_entry()
+          actions.close(prompt_bufnr)
+
+          if entry then
+            M.save(entry[1])
+          end
+        end)
+
+        return true
+      end,
+    }):find()
 end
 
 vim.keymap.set("n", "<leader>ut", function()
