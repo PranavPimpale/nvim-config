@@ -1,5 +1,3 @@
-local colors = require('config.colors')
-
 return {
   {
     "rachartier/tiny-inline-diagnostic.nvim",
