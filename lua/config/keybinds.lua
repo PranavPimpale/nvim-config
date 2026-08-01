@@ -36,6 +36,9 @@ keymap.set('n', '<leader>re', ':restart<CR>', { noremap = true, silent = true })
 -- [cmd] :Lazy
 keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
 
+-- [cmd] :redo
+keymap.set('n', 'U', ':redo<CR>', { noremap = true, silent = true })
+
 -- yank/paste to clipboard
 keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
 keymap.set({ "n", "v" }, "<leader>p", '"+p', { silent = true, desc = "Paste from system clipboard" })
@@ -62,8 +65,8 @@ keymap.set("n", "<leader>n", function()
 end, { desc = "Toggle search highlight" })
 
 -- better pasting
-vim.keymap.set("n", "p", "p`]")
-vim.keymap.set("n", "P", "P`]")
+keymap.set("n", "p", "p`]")
+keymap.set("n", "P", "P`]")
 
 -- mouse Toggle
 local file = vim.fn.stdpath("state") .. "/mouse"
@@ -72,7 +75,7 @@ pcall(function()
   vim.o.mouse = vim.fn.readfile(file)[1]
 end)
 
-vim.keymap.set("n", "<leader>mt", function()
+keymap.set("n", "<leader>mt", function()
   vim.o.mouse = vim.o.mouse == "" and "a" or ""
   vim.fn.writefile({ vim.o.mouse }, file)
 end)

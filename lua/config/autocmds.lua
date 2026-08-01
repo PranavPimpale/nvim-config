@@ -10,7 +10,7 @@ api.nvim_create_autocmd("FileType", {
 })
 
 -- 3 sec only for saved message in cmdline
-vim.api.nvim_create_autocmd("BufWritePost", {
+api.nvim_create_autocmd("BufWritePost", {
   callback = function()
     vim.defer_fn(function()
       vim.cmd("echo ''")
@@ -34,7 +34,7 @@ api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- no auto continue comments on new line
-vim.api.nvim_create_autocmd("FileType", {
+api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("no_auto_comment", {}),
   callback = function()
     vim.opt_local.formatoptions:remove({ "c", "r", "o" })
@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- highlight yank
-vim.api.nvim_create_autocmd("TextYankPost", {
+api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   pattern = "*",
   desc = "highlight selection on yank",
@@ -78,12 +78,12 @@ end
 
 transparent_bg()
 
-vim.api.nvim_create_autocmd("ColorScheme", {
+api.nvim_create_autocmd("ColorScheme", {
   callback = transparent_bg,
 })
 
 -- remove trailing spaces after saving
-vim.api.nvim_create_autocmd("BufWritePre", {
+api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function()
     local view = vim.fn.winsaveview()
@@ -95,12 +95,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- open help in vertical split
-vim.api.nvim_create_autocmd("FileType", {
+api.nvim_create_autocmd("FileType", {
 	pattern = "help",
 	command = "wincmd L",
 })
 
 -- auto resize splits when the terminal's window is resized
-vim.api.nvim_create_autocmd("VimResized", {
+api.nvim_create_autocmd("VimResized", {
 	command = "wincmd =",
 })
