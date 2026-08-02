@@ -1,5 +1,4 @@
 local plugins = require('config.plugins')
-local colors = require('config.colors')
 
 return {
   {
@@ -139,34 +138,6 @@ return {
             cmp.close()
           end
         end,
-      })
-
-      -- coloring stuffs
-      vim.api.nvim_set_hl(0, "CmpSel", {
-        fg = nil,
-        bg = colors.select,
-      })
-
-      vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", {
-        fg = colors.comment,
-        bold = true,
-      })
-
-      vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", {
-        fg = colors.comment,
-        bold = true,
-      })
-
-      vim.api.nvim_set_hl(0, "CmpItemAbbr", {
-        fg = colors.itemAbbr,
-      })
-
-      vim.api.nvim_set_hl(0, "CmpItemMenu", {
-        fg = colors.white,
-      })
-
-      vim.api.nvim_set_hl(0, "CmpItemKind", {
-        fg = colors.dark,
       })
     end,
   },

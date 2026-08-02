@@ -96,7 +96,6 @@ local transparent_groups = {
 
   -- Popup menu
   "Pmenu",
-  "PmenuSel",
   "PmenuSbar",
   "PmenuThumb",
 
@@ -133,25 +132,26 @@ local function global_highlights()
   transparent_bg()
 
   -- Cursor line
-  vim.api.nvim_set_hl(0, "CursorLine", {
-    bg = colors.line,
-  })
+  api.nvim_set_hl(0, "CursorLine", { bg = colors.line })
 
   -- Search
-  vim.api.nvim_set_hl(0, "Search", {
-    bg = colors.search,
-  })
-
-  vim.api.nvim_set_hl(0, "IncSearch", {
-    bg = colors.incsearch,
-  })
+  api.nvim_set_hl(0, "Search", { bg = colors.search })
+  api.nvim_set_hl(0, "IncSearch", { bg = colors.incsearch })
 
   -- Matching Parenthesis
-  vim.api.nvim_set_hl(0, "MatchParen", {
+  api.nvim_set_hl(0, "MatchParen", {
     fg = colors.parenthesis,
     bg = colors.grey,
     bold = true,
   })
+
+  -- cmp.nvim coloring stuffs
+  api.nvim_set_hl(0, "CmpSel", { fg = nil, bg = colors.select })
+  api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = colors.comment, bold = true })
+  api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = colors.comment, bold = true })
+  api.nvim_set_hl(0, "CmpItemAbbr", { fg = colors.itemAbbr })
+  api.nvim_set_hl(0, "CmpItemMenu", { fg = colors.white })
+  api.nvim_set_hl(0, "CmpItemKind", { fg = colors.dark })
 end
 
 global_highlights()
