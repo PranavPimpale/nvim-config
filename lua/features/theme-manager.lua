@@ -114,7 +114,7 @@ function M.pick()
 end
 
 vim.keymap.set("n", "<leader>ut", function()
-  require("config.theme-manager").pick()
+  require("features.theme-manager").pick()
 end, { desc = "Theme Picker" })
 
 M.load()
