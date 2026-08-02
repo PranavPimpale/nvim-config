@@ -6,7 +6,6 @@ return {
   hop = true,
   lsp = true,
   lualine = true,
-  luasnip = true,
   mini = true,
   neoscroll = true,
   highlight = true,
