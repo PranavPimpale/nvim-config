@@ -1,4 +1,4 @@
-local colors = require('config.colors')
+local colors = require('loader.colors')
 local api = vim.api
 
 api.nvim_create_autocmd("FileType", {

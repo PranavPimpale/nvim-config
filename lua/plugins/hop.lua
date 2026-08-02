@@ -1,4 +1,4 @@
-local plugins = require('config.plugins')
+local plugins = require('loader.plugins')
 
 return {
   "smoka7/hop.nvim",

@@ -1,5 +1,5 @@
-local plugins = require('config.plugins')
-local colors = require('config.colors')
+local plugins = require('loader.plugins')
+local colors = require('loader.colors')
 
 return {
   {
@@ -68,7 +68,8 @@ return {
     priority = 1000,
     config = function()
       require("everforest").setup({
-        italic = false,
+        italics = false,
+        disable_italic_comments = true,
         bold = false,
       })
     end,

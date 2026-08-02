@@ -1,6 +1,9 @@
+local plugins = require('loader.plugins')
+
 return {
   {
     "rachartier/tiny-inline-diagnostic.nvim",
+    enabled = plugins.tiny,
     event = "LspAttach",
     priority = 1000,
     config = function()

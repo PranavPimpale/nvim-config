@@ -1,5 +1,5 @@
-local plugins = require('config.plugins')
-local colors = require('config.colors')
+local plugins = require('loader.plugins')
+local colors = require('loader.colors')
 
 return {
   'nvim-lualine/lualine.nvim',
