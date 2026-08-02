@@ -11,11 +11,12 @@ return {
   dark   = '#242424', -- section a, y, z
   cherry = '#ff5555',
   yellow = '#f1fa8c',
+  itemMenu = '#606060',
   itemAbbr = '#cccccc', -- for nvim-cmp
   line = '#101010',
   search = '#303030',
   incsearch = '#505050',
-  parenthesis = "#E55452",
+  parenthesis = '#E55452',
 
 
   -- [THEME] : "vague"
