@@ -10,23 +10,11 @@ return {
       require('vague').setup({
         bold = false,
         italic = false,
-        on_highlights = function(hl, color)
-          -- disables the ~ from the remaining lines (dont change anything)
-          hl.EndOfBuffer = {
-            fg = color.bg,
-          }
-          hl.MatchParen = {
-            fg = "#E55451",
-            bg = "#232323",
-            bold = true,
-          }
-        end,
         colors = {
           bg = colors.bg,
           inactiveBg = colors.inactiveBg,
           fg = colors.fg,
           floatBorder = colors.floatBorder,
-          line = colors.line,
           comment = colors.comment,
           builtin = colors.builtin,
           func = colors.func,
@@ -42,19 +30,9 @@ return {
           operator = colors.operator,
           keyword = colors.keyword,
           type = colors.type,
-          search = colors.search,
           plus = colors.plus,
           delta = colors.delta,
         },
-      })
-
-      -- custom select highlights
-      vim.api.nvim_set_hl(0, "Search", {
-        bg = "#303030",
-      })
-
-      vim.api.nvim_set_hl(0, "IncSearch", {
-        bg = "#505050",
       })
     end,
   },
@@ -65,14 +43,6 @@ return {
     priority = 1000,
     config = function()
       require("kanagawa").setup({
-        overrides = function()
-          return {
-            CursorLine = {
-              bg = "#101010",
-            },
-          }
-        end,
-
         statementStyle = { bold = false },
         keywordStyle   = { italic = false },
         commentStyle   = { italic = false },
@@ -88,6 +58,18 @@ return {
             },
           },
         },
+      })
+    end,
+  },
+
+  {
+    "neanias/everforest-nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("everforest").setup({
+        italic = false,
+        bold = false,
       })
     end,
   },

@@ -12,13 +12,17 @@ return {
   cherry = '#ff5555',
   yellow = '#f1fa8c',
   itemAbbr = '#cccccc', -- for nvim-cmp
+  line = '#101010',
+  search = '#303030',
+  incsearch = '#505050',
+  parenthesis = "#E55452",
+
 
   -- [THEME] : "vague"
   bg = '#090909',  -- neovim background color
   inactiveBg = '#171717',
   fg = '#cdcdcd',
   floatBorder = '#eeeeee',
-  line = '#101010',
   comment = '#606079',
   builtin = '#b4d4cf',
   func = '#F78C6C',
@@ -34,7 +38,6 @@ return {
   operator = '#90a0b5',
   keyword = '#6e94b2',
   type = '#9bb4bc',
-  search = '#405258',
   plus = '#7fa563',
   delta = '#f3be7c',
 }

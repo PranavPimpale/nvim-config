@@ -44,3 +44,6 @@ opt.showmode = false
 -- line wrap
 opt.wrap = true
 opt.linebreak = true
+
+-- blank line "~" disabled
+opt.fillchars = "eob: "

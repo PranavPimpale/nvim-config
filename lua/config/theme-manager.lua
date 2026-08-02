@@ -6,6 +6,7 @@ local themes = {
   "vague",
   "kanagawa-dragon",
   "kanagawa-wave",
+  "everforest",
 }
 
 local function read_saved_theme()

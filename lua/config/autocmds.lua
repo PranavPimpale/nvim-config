@@ -1,3 +1,4 @@
+local colors = require('config.colors')
 local api = vim.api
 
 api.nvim_create_autocmd("FileType", {
@@ -51,35 +52,15 @@ api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- transparent background, no matter what theme
-local transparent_groups = {
-  "Normal",
-  "NormalFloat",
-  "FloatBorder",
+-- open help in vertical split
+api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  command = "wincmd L",
+})
 
-  "TelescopeNormal",
-  "TelescopeBorder",
-  "TelescopePromptNormal",
-  "TelescopePromptBorder",
-  "TelescopePromptTitle",
-  "TelescopeResultsNormal",
-  "TelescopeResultsBorder",
-  "TelescopeResultsTitle",
-  "TelescopePreviewNormal",
-  "TelescopePreviewBorder",
-  "TelescopePreviewTitle",
-}
-
-local function transparent_bg()
-  for _, group in ipairs(transparent_groups) do
-    api.nvim_set_hl(0, group, { bg = "NONE" })
-  end
-end
-
-transparent_bg()
-
-api.nvim_create_autocmd("ColorScheme", {
-  callback = transparent_bg,
+-- auto resize splits when the terminal's window is resized
+api.nvim_create_autocmd("VimResized", {
+  command = "wincmd =",
 })
 
 -- remove trailing spaces after saving
@@ -94,13 +75,87 @@ api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- open help in vertical split
-api.nvim_create_autocmd("FileType", {
-  pattern = "help",
-  command = "wincmd L",
-})
+------ [THEME SETTINGS] ------
 
--- auto resize splits when the terminal's window is resized
-api.nvim_create_autocmd("VimResized", {
-  command = "wincmd =",
+-- transparent background, no matter what theme
+local transparent_groups = {
+  -- core
+  "Normal",
+  "NormalNC",
+  "NormalFloat",
+  "FloatBorder",
+  "FloatTitle",
+  "SignColumn",
+  "FoldColumn",
+  "EndOfBuffer",
+  "WinSeparator",
+  "StatusLine",
+  "StatusLineNC",
+  "TabLine",
+  "TabLineFill",
+
+  -- Popup menu
+  "Pmenu",
+  "PmenuSel",
+  "PmenuSbar",
+  "PmenuThumb",
+
+  "TelescopeNormal",
+  "TelescopeBorder",
+  "TelescopePromptNormal",
+  "TelescopePromptBorder",
+  "TelescopePromptTitle",
+  "TelescopeResultsNormal",
+  "TelescopeResultsBorder",
+  "TelescopeResultsTitle",
+  "TelescopePreviewNormal",
+  "TelescopePreviewBorder",
+  "TelescopePreviewTitle",
+
+  -- cmp
+  "CmpDocumentation",
+  "CmpDocumentationBorder",
+  "BlinkCmpMenu",
+  "BlinkCmpMenuBorder",
+}
+
+local function transparent_bg()
+  for _, group in ipairs(transparent_groups) do
+    pcall(api.nvim_set_hl, 0, group, {
+      bg = "NONE",
+      ctermbg = "NONE",
+    })
+  end
+end
+
+-- All personal highlight overrides
+local function global_highlights()
+  transparent_bg()
+
+  -- Cursor line
+  vim.api.nvim_set_hl(0, "CursorLine", {
+    bg = colors.line,
+  })
+
+  -- Search
+  vim.api.nvim_set_hl(0, "Search", {
+    bg = colors.search,
+  })
+
+  vim.api.nvim_set_hl(0, "IncSearch", {
+    bg = colors.incsearch,
+  })
+
+  -- Matching Parenthesis
+  vim.api.nvim_set_hl(0, "MatchParen", {
+    fg = colors.parenthesis,
+    bg = colors.grey,
+    bold = true,
+  })
+end
+
+global_highlights()
+
+api.nvim_create_autocmd("ColorScheme", {
+  callback = global_highlights,
 })
