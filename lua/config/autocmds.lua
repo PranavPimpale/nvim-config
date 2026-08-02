@@ -145,6 +145,9 @@ local function global_highlights()
     bold = true,
   })
 
+  -- telescope cursor line
+  api.nvim_set_hl(0, "TelescopeSelection", { bg = colors.select })
+
   -- cmp.nvim coloring stuffs
   api.nvim_set_hl(0, "CmpSel", { fg = nil, bg = colors.select })
   api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = colors.comment, bold = true })
