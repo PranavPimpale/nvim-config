@@ -8,7 +8,6 @@ return {
     priority = 100,
     config = function()
       require('vague').setup({
-        transparent = true,
         bold = false,
         italic = false,
         on_highlights = function(hl, color)

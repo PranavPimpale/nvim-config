@@ -21,10 +21,10 @@ api.nvim_create_autocmd("BufWritePost", {
 -- restore cursor to file position in previous editing session
 api.nvim_create_autocmd("BufReadPost", {
   callback = function(args)
-    local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
-    local line_count = vim.api.nvim_buf_line_count(args.buf)
+    local mark = api.nvim_buf_get_mark(args.buf, '"')
+    local line_count = api.nvim_buf_line_count(args.buf)
     if mark[1] > 0 and mark[1] <= line_count then
-      vim.api.nvim_win_set_cursor(0, mark)
+      api.nvim_win_set_cursor(0, mark)
       -- defer centering slightly so it's applied after render
       vim.schedule(function()
         vim.cmd("normal! zz")
@@ -35,7 +35,7 @@ api.nvim_create_autocmd("BufReadPost", {
 
 -- no auto continue comments on new line
 api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("no_auto_comment", {}),
+  group = api.nvim_create_augroup("no_auto_comment", {}),
   callback = function()
     vim.opt_local.formatoptions:remove({ "c", "r", "o" })
   end,
@@ -43,7 +43,7 @@ api.nvim_create_autocmd("FileType", {
 
 -- highlight yank
 api.nvim_create_autocmd("TextYankPost", {
-  group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+  group = api.nvim_create_augroup("highlight_yank", { clear = true }),
   pattern = "*",
   desc = "highlight selection on yank",
   callback = function()
@@ -72,7 +72,7 @@ local transparent_groups = {
 
 local function transparent_bg()
   for _, group in ipairs(transparent_groups) do
-    vim.api.nvim_set_hl(0, group, { bg = "NONE" })
+    api.nvim_set_hl(0, group, { bg = "NONE" })
   end
 end
 
@@ -96,11 +96,11 @@ api.nvim_create_autocmd("BufWritePre", {
 
 -- open help in vertical split
 api.nvim_create_autocmd("FileType", {
-	pattern = "help",
-	command = "wincmd L",
+  pattern = "help",
+  command = "wincmd L",
 })
 
 -- auto resize splits when the terminal's window is resized
 api.nvim_create_autocmd("VimResized", {
-	command = "wincmd =",
+  command = "wincmd =",
 })
