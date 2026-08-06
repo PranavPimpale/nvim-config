@@ -22,6 +22,16 @@ require("lazy").setup({
     },
   },
 
+  ui = {
+    border = "rounded",
+    size = {
+      width = 1,
+      height = 1,
+    },
+    backdrop = 100,
+    wrap = true,
+  },
+
   rocks = {
     enabled = false,
   },
