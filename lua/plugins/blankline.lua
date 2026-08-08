@@ -1,9 +1,9 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = plugins.blankline,
+    enabled = toggle.blankline,
     main = "ibl",
     opts = {},
     config = function()

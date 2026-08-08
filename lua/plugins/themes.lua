@@ -1,4 +1,4 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 local colors = require('loader.colors')
 
 return {
@@ -77,7 +77,7 @@ return {
 
   {
     'brenoprata10/nvim-highlight-colors',
-    enabled = plugins.highlight,
+    enabled = toggle.highlight,
     config = function()
       require('nvim-highlight-colors').setup({})
     end

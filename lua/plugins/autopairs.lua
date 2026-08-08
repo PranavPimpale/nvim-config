@@ -1,9 +1,9 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   {
     "windwp/nvim-autopairs",
-    enabled = plugins.autopairs,
+    enabled = toggle.autopairs,
     event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup({

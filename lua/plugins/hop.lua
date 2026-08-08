@@ -1,8 +1,8 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   "smoka7/hop.nvim",
-  enabled = plugins.hop,
+  enabled = toggle.hop,
   version = "*",
   opts = {},
   keys = {

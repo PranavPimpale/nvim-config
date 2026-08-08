@@ -39,9 +39,16 @@ keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
 -- [cmd] :redo
 keymap.set('n', 'U', ':redo<CR>', { noremap = true, silent = true })
 
+-- select whole file
+vim.keymap.set("n", "va", "ggVG", { silent = true, desc = "Select entire file" })
+
 -- yank/paste to clipboard
 keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
-keymap.set({ "n", "v" }, "<leader>p", '"+p', { silent = true, desc = "Paste from system clipboard" })
+keymap.set({ "n", "v" }, "<leader>p", function()
+  vim.cmd('normal! "+p')
+  vim.cmd("normal! '[V']")
+  vim.cmd("normal! =")
+end, { silent = true, desc = "Paste and format" })
 
 -- format file
 vim.keymap.set("n", "<leader>cf", function()

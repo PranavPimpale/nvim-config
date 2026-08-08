@@ -1,9 +1,9 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   {
     'nvim-telescope/telescope.nvim', version = '*',
-    enabled = plugins.telescope,
+    enabled = toggle.telescope,
     dependencies = {
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
@@ -31,7 +31,7 @@ return {
       telescope.load_extension("fzf")
 
       -- keymaps
-      vim.keymap.set("n", "<leader>ff", function()
+      vim.keymap.set("n", "<leader>f", function()
         require("telescope.builtin").find_files(
           require("telescope.themes").get_dropdown({
             previewer = false,
@@ -43,9 +43,9 @@ return {
           })
         )
       end)
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+      vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
 
-      vim.keymap.set("n", "<leader>fb", function()
+      vim.keymap.set("n", "<leader>b", function()
         require("telescope.builtin").buffers(
           require("telescope.themes").get_dropdown({
             previewer = false,
@@ -58,7 +58,7 @@ return {
         )
       end)
 
-      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+      vim.keymap.set('n', '<leader>t', builtin.help_tags, { desc = 'Telescope help tags' })
 
       vim.keymap.set("n", "<leader>o", function()
         require("telescope.builtin").lsp_document_symbols(

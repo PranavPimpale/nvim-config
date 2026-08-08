@@ -1,9 +1,9 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   {
     "neovim/nvim-lspconfig",
-    enabled = plugins.lsp,
+    enabled = toggle.lsp,
 
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()

@@ -1,8 +1,8 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   "karb94/neoscroll.nvim",
-  enabled = plugins.neoscroll,
+  enabled = toggle.neoscroll,
   event = "WinScrolled",
 
   opts = {

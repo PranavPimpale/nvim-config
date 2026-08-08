@@ -1,9 +1,9 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   {
     "lewis6991/gitsigns.nvim",
-    enabled = plugins.gitsigns,
+    enabled = toggle.gitsigns,
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       signcolumn = true,

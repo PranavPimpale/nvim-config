@@ -1,8 +1,8 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   "echasnovski/mini.indentscope",
-  enabled = plugins.mini,
+  enabled = toggle.indentscope,
   version = false,
   event = "VeryLazy",
   opts = {

@@ -75,6 +75,42 @@ api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+-- Fix multiple blank lines to a single blank line
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    local has_extra = false
+
+    for i = 2, #lines do
+      if lines[i] == "" and lines[i - 1] == "" then
+        has_extra = true
+        break
+      end
+    end
+
+    if not has_extra then
+      return
+    end
+
+    local result = {}
+    local blank = false
+
+    for _, line in ipairs(lines) do
+      if line == "" then
+        if not blank then
+          table.insert(result, "")
+        end
+        blank = true
+      else
+        table.insert(result, line)
+        blank = false
+      end
+    end
+
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, result)
+  end,
+})
+
 ------ [THEME SETTINGS] ------
 
 -- transparent background, no matter what theme
@@ -99,6 +135,7 @@ local transparent_groups = {
   "PmenuSbar",
   "PmenuThumb",
 
+  -- Telescope
   "TelescopeNormal",
   "TelescopeBorder",
   "TelescopePromptNormal",

@@ -1,10 +1,10 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   -- NOTE: treesitter CLI installation needed
   {
     "nvim-treesitter/nvim-treesitter",
-    enabled = plugins.treesitter,
+    enabled = toggle.treesitter,
     branch = "main",
     lazy = false,
     build = ":TSUpdate",

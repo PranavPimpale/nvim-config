@@ -1,9 +1,9 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   {
     "hrsh7th/nvim-cmp",
-    enabled = plugins.cmp,
+    enabled = toggle.cmp,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",

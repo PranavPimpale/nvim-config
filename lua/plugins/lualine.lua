@@ -1,9 +1,9 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 local colors = require('loader.colors')
 
 return {
   'nvim-lualine/lualine.nvim',
-  enabled = plugins.lualine,
+  enabled = toggle.lualine,
   event = "UIEnter",
   dependencies = { 'nvim-tree/nvim-web-devicons' },
 

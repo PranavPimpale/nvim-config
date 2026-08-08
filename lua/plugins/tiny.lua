@@ -1,9 +1,9 @@
-local plugins = require('loader.plugins')
+local toggle = require('loader.toggle')
 
 return {
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    enabled = plugins.tiny,
+    enabled = toggle.tiny,
     event = "LspAttach",
     priority = 1000,
     config = function()
