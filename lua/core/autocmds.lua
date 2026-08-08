@@ -111,6 +111,21 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+-- permanent bold/italic disabled
+vim.api.nvim_create_autocmd("ColorScheme", {
+  desc = "Strip bold and italic from all highlight groups",
+  callback = function()
+    for _, group in ipairs(vim.fn.getcompletion("", "highlight")) do
+      local hl = vim.api.nvim_get_hl(0, { name = group })
+      if hl.bold or hl.italic then
+        hl.bold = false
+        hl.italic = false
+        vim.api.nvim_set_hl(0, group, hl)
+      end
+    end
+  end,
+})
+
 ------ [THEME SETTINGS] ------
 
 -- transparent background, no matter what theme
