@@ -62,10 +62,6 @@ return {
             select = true,
           }),
 
-          ["<M-l>"] = cmp.mapping.confirm({
-            select = true,
-          }),
-
           ["<C-Space>"] = cmp.mapping.complete(),
 
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -142,4 +138,3 @@ return {
     end,
   },
 }
-
