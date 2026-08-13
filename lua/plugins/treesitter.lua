@@ -22,6 +22,7 @@ return {
         "vimdoc",
         "json",
         "gitignore",
+        "markdown",
         -- "javascript",
         -- "typescript",
         -- "tsx",
