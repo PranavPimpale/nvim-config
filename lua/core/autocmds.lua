@@ -111,6 +111,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+-- removes all blank lines below the end of the file
+local function remove_trailing_blank_lines()
+  local last = vim.fn.line("$")
+
+  while last > 0 and vim.fn.getline(last):match("^%s*$") do
+    vim.fn.deletebufline(0, last)
+    last = last - 1
+  end
+end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = remove_trailing_blank_lines,
+})
+
 -- permanent bold/italic disabled
 vim.api.nvim_create_autocmd("ColorScheme", {
   desc = "Strip bold and italic from all highlight groups",
