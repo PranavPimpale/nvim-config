@@ -62,6 +62,19 @@ function M.pick()
   local action_state = require("telescope.actions.state")
   local themes_ui = require("telescope.themes")
 
+  local saved_theme = read_saved_theme()
+
+  local default_index = 1
+
+  if saved_theme then
+    for i, theme in ipairs(themes) do
+      if theme == saved_theme then
+        default_index = i
+        break
+      end
+    end
+  end
+
   pickers.new(themes_ui.get_dropdown({
     previewer = false,
     layout_config = {
@@ -78,6 +91,8 @@ function M.pick()
       }),
 
       sorter = conf.generic_sorter({}),
+
+      default_selection_index = default_index,
 
       attach_mappings = function(prompt_bufnr)
         local function preview_theme()
