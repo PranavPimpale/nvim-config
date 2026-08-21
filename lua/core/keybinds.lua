@@ -40,18 +40,24 @@ keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
 keymap.set('n', 'U', ':redo<CR>', { noremap = true, silent = true })
 
 -- select whole file
-vim.keymap.set("n", "va", "ggVG", { silent = true, desc = "Select entire file" })
+keymap.set("n", "va", "ggVG", { silent = true, desc = "Select entire file" })
 
 -- yank/paste to clipboard
-keymap.set({ "n", "v" }, "<leader>y", '"+y', { silent = true, desc = "Yank to system clipboard" })
+keymap.set("v", "<leader>y", function()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  vim.cmd('normal! "+y')
+  vim.api.nvim_win_set_cursor(0, pos)
+end, { silent = true, desc = "Yank to system clipboard" })
+
 keymap.set({ "n", "v" }, "<leader>p", function()
   vim.cmd('normal! "+p')
   vim.cmd("normal! '[V']")
   vim.cmd("normal! =")
+  vim.cmd("normal! ']$")
 end, { silent = true, desc = "Paste and format" })
 
 -- format file
-vim.keymap.set("n", "<leader>cf", function()
+keymap.set("n", "<leader>cf", function()
   local view = vim.fn.winsaveview()
   vim.cmd("silent! normal! gg=G")
   vim.fn.winrestview(view)
@@ -70,6 +76,13 @@ keymap.set("i", "<M-j>", "<BS>", { noremap = true, silent = true, desc = "Alt+H 
 keymap.set("n", "<leader>n", function()
   vim.o.hlsearch = not vim.o.hlsearch
 end, { desc = "Toggle search highlight" })
+
+-- better yanking
+keymap.set("v", "y", function()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  vim.cmd("normal! y")
+  vim.api.nvim_win_set_cursor(0, pos)
+end, { silent = true })
 
 -- better pasting
 keymap.set("n", "p", "p`]")
