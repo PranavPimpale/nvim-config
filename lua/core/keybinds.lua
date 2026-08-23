@@ -31,11 +31,7 @@ keymap.set("i", "<Left>", "<Nop>")
 keymap.set("i", "<Right>", "<Nop>")
 
 -- [cmd] :restart
-keymap.set("n", "<leader>re", function()
-  local session = vim.fn.stdpath "state" .. "/restart_session.vim"
-  vim.cmd("mksession! " .. vim.fn.fnameescape(session))
-  vim.cmd("restart source " .. vim.fn.fnameescape(session))
-end)
+keymap.set('n', '<leader>re', ':restart<CR>', { noremap = true, silent = true })
 
 -- [cmd] :Lazy
 keymap.set('n', '<leader>l', ':Lazy<CR>', { noremap = true, silent = true })
