@@ -4,10 +4,11 @@ return {
   {
     "hrsh7th/nvim-cmp",
     enabled = toggle.cmp,
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-path",
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
@@ -21,6 +22,23 @@ return {
       local function no_deprecated(entry)
         return not entry:get_completion_item().deprecated
       end
+
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      })
+
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+            { name = "cmdline" },
+          }),
+        matching = { disallow_symbol_nonprefix_matching = false },
+      })
 
       cmp.setup({
         snippet = {
