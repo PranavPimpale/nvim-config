@@ -19,6 +19,48 @@ return {
             i = {
               ["<Tab>"] = actions.move_selection_next,
               ["<S-Tab>"] = actions.move_selection_previous,
+
+              ["<Esc>"] = actions.close,
+
+              ["<C-h>"] = function()
+                vim.api.nvim_feedkeys(
+                  vim.api.nvim_replace_termcodes("<Left>", true, false, true),
+                  "n",
+                  false
+                )
+              end,
+
+              ["<C-l>"] = function()
+                vim.api.nvim_feedkeys(
+                  vim.api.nvim_replace_termcodes("<Right>", true, false, true),
+                  "n",
+                  false
+                )
+              end,
+
+              ["<C-u>"] = function()
+                vim.api.nvim_feedkeys(
+                  vim.api.nvim_replace_termcodes("<C-u>", true, false, true),
+                  "n",
+                  false
+                )
+              end,
+
+              ["<C-a>"] = function()
+                vim.api.nvim_feedkeys(
+                  vim.api.nvim_replace_termcodes("<Home>", true, false, true),
+                  "n",
+                  false
+                )
+              end,
+
+              ["<C-i>"] = function()
+                vim.api.nvim_feedkeys(
+                  vim.api.nvim_replace_termcodes("<End>", true, false, true),
+                  "n",
+                  false
+                )
+              end,
             },
             n = {
               ["<Tab>"] = actions.move_selection_next,
