@@ -3,12 +3,45 @@ local M = {}
 local theme_file = vim.fn.stdpath("data") .. "/theme.txt"
 local default_theme = "vague"
 
-local themes = {
-  "vague",
-  "kanagawa-dragon",
-  "kanagawa-wave",
-  "everforest",
-}
+local function get_installed_themes()
+  local themes = {}
+
+  -- Load the plugins defined in lua/plugins/themes.lua
+  local theme_plugins = require("plugins.themes")
+
+  for _, spec in ipairs(theme_plugins) do
+    local repo = spec[1]
+
+    if repo then
+      -- Convert "author/plugin.nvim" → plugin name
+      local plugin_name = repo:match("/([^/]+)$")
+
+      if plugin_name then
+        local plugin_dir = vim.fn.stdpath("data")
+        .. "/lazy/"
+        .. plugin_name
+
+        -- Find colorscheme files from this plugin only
+        for _, file in ipairs(vim.fn.globpath(
+          plugin_dir,
+          "colors/*",
+          false,
+          true
+        )) do
+          local name = vim.fn.fnamemodify(file, ":t:r")
+
+          if not vim.tbl_contains(themes, name) then
+            table.insert(themes, name)
+          end
+        end
+      end
+    end
+  end
+
+  table.sort(themes)
+
+  return themes
+end
 
 local function read_saved_theme()
   local f = io.open(theme_file, "r")
@@ -54,6 +87,8 @@ function M.save(theme)
 end
 
 function M.pick()
+  local themes = get_installed_themes()
+
   local pickers = require("telescope.pickers")
   local finders = require("telescope.finders")
   local conf = require("telescope.config").values
