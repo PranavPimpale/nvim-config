@@ -23,21 +23,64 @@ return {
         return not entry:get_completion_item().deprecated
       end
 
+      local cmdline_mapping = {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item({
+              behavior = cmp.SelectBehavior.Insert,
+            })
+          else
+            cmp.complete()
+          end
+        end, { "c" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item({
+              behavior = cmp.SelectBehavior.Insert,
+            })
+          else
+            fallback()
+          end
+        end, { "c" }),
+
+        ["<CR>"] = cmp.mapping.confirm({
+          select = false,
+        }),
+      }
+
       cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline(),
+        preselect = cmp.PreselectMode.None,
+
+        completion = {
+          completeopt = "menu,menuone,noinsert,noselect",
+        },
+
+        mapping = cmdline_mapping,
+
         sources = {
           { name = "buffer" },
         },
       })
 
       cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
+        preselect = cmp.PreselectMode.None,
+
+        completion = {
+          completeopt = "menu,menuone,noinsert,noselect",
+        },
+
+        mapping = cmdline_mapping,
+
         sources = cmp.config.sources({
           { name = "path" },
         }, {
             { name = "cmdline" },
           }),
-        matching = { disallow_symbol_nonprefix_matching = false },
+
+        matching = {
+          disallow_symbol_nonprefix_matching = false,
+        },
       })
 
       cmp.setup({
