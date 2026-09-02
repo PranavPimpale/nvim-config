@@ -1,6 +1,7 @@
 local M = {}
 
 local theme_file = vim.fn.stdpath("data") .. "/theme.txt"
+local default_theme = "vague"
 
 local themes = {
   "vague",
@@ -41,10 +42,8 @@ local function apply_theme(theme)
 end
 
 function M.load()
-  local theme = read_saved_theme()
-  if theme then
-    apply_theme(theme)
-  end
+  local theme = read_saved_theme() or default_theme
+  apply_theme(theme)
 end
 
 function M.save(theme)
