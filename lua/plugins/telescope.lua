@@ -17,10 +17,10 @@ return {
         defaults = {
           mappings = {
             i = {
-              ["<Tab>"] = actions.move_selection_next,
-              ["<S-Tab>"] = actions.move_selection_previous,
-
               ["<Esc>"] = actions.close,
+
+              ["<M-j>"] = actions.move_selection_next,
+              ["<M-k>"] = actions.move_selection_previous,
 
               ["<C-h>"] = function()
                 vim.api.nvim_feedkeys(
