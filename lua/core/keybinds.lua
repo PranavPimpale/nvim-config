@@ -72,7 +72,7 @@ keymap.set("i", "<M-l>", "<CR>", { noremap = true, silent = true, desc = "Alt+L 
 -- Alt+j to hit backspace
 keymap.set("i", "<M-j>", "<BS>", { noremap = true, silent = true, desc = "Alt+H -> Backspace" })
 
--- noggle :noh
+-- toggle :noh
 keymap.set("n", "<leader>n", function()
   vim.o.hlsearch = not vim.o.hlsearch
 end, { desc = "Toggle search highlight" })
