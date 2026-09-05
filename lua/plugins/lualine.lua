@@ -1,5 +1,5 @@
 local toggle = require('loader.toggle')
-local colors = require('loader.colors')
+local color = require('loader.colors')
 
 return {
   'nvim-lualine/lualine.nvim',
@@ -9,40 +9,40 @@ return {
 
   config = function ()
     local common = {
-      b = { fg = colors.white, bg = colors.grey },
-      c = { fg = colors.white, bg = colors.black },
-      x = { fg = colors.white, bg = colors.black },
-      y = { fg = colors.white, bg = colors.dark },
-      z = { fg = colors.white, bg = colors.dark },
+      b = { fg = color.white, bg = color.grey },
+      c = { fg = color.white, bg = color.black },
+      x = { fg = color.white, bg = color.black },
+      y = { fg = color.white, bg = color.dark },
+      z = { fg = color.white, bg = color.dark },
     }
 
     local bubbles_theme = {
       normal = vim.tbl_extend("force", common, {
-        a = { fg = colors.red, bg = colors.dark, gui = "bold" },
+        a = { fg = color.red, bg = color.dark, gui = "bold" },
       }),
 
       insert = vim.tbl_extend("force", common, {
-        a = { fg = colors.blue, bg = colors.dark, gui = "bold" },
+        a = { fg = color.blue, bg = color.dark, gui = "bold" },
       }),
 
       visual = vim.tbl_extend("force", common, {
-        a = { fg = colors.cyan, bg = colors.dark, gui = "bold" },
+        a = { fg = color.cyan, bg = color.dark, gui = "bold" },
       }),
 
       command = vim.tbl_extend("force", common, {
-        a = { fg = colors.green, bg = colors.dark, gui = "bold" },
+        a = { fg = color.green, bg = color.dark, gui = "bold" },
       }),
 
       replace = vim.tbl_extend("force", common, {
-        a = { fg = colors.white, bg = colors.dark, gui = "bold" },
+        a = { fg = color.white, bg = color.dark, gui = "bold" },
       }),
 
       terminal = vim.tbl_extend("force", common, {
-        a = { fg = colors.violet, bg = colors.dark, gui = "bold" },
+        a = { fg = color.violet, bg = color.dark, gui = "bold" },
       }),
 
       inactive = vim.tbl_extend("force", common, {
-        a = { fg = colors.violet, bg = colors.dark, gui = "bold" },
+        a = { fg = color.violet, bg = color.dark, gui = "bold" },
       }),
     }
 
@@ -74,7 +74,7 @@ return {
             "filename",
             path = 0,
             color = {
-              bg = colors.black,
+              bg = color.black,
             },
           },
         },
@@ -93,12 +93,12 @@ return {
             },
 
             diagnostics_color = {
-              error = { fg = colors.cherry },
-              warn  = { fg = colors.yellow },
+              error = { fg = color.cherry },
+              warn  = { fg = color.yellow },
             },
 
             color = {
-              bg = colors.black;
+              bg = color.black;
             },
           },
         },
@@ -112,8 +112,8 @@ return {
             end,
 
             color = {
-              fg = colors.white,
-              bg = colors.black,
+              fg = color.white,
+              bg = color.black,
             },
           },
         },
@@ -127,8 +127,8 @@ return {
             end,
 
             color = {
-              fg = colors.white,
-              bg = colors.dark,
+              fg = color.white,
+              bg = color.dark,
             },
           },
         },
@@ -137,8 +137,8 @@ return {
           {
             "branch",
             color = {
-              fg = colors.white,
-              bg = colors.dark,
+              fg = color.white,
+              bg = color.dark,
             }
           },
         },
