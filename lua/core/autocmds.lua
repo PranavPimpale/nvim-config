@@ -10,12 +10,36 @@ api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- 3 sec only for saved message in cmdline
-api.nvim_create_autocmd("BufWritePost", {
-  callback = function()
+-- notification on save of file
+vim.api.nvim_create_autocmd("BufWritePost", {
+  callback = function(args)
+    local filename = vim.fn.fnamemodify(args.file, ":t")
+    local text = " Saved: " .. filename .. " "
+
+    local width = vim.fn.strdisplaywidth(text)
+
+    local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { text })
+
+    local win = vim.api.nvim_open_win(buf, false, {
+      relative = "editor",
+      row = 0,
+      col = vim.o.columns - width - 1,
+      width = width,
+      height = 1,
+      style = "minimal",
+      border = "rounded",
+    })
+
     vim.defer_fn(function()
-      vim.cmd("echo ''")
-    end, 500)
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
+      end
+
+      if vim.api.nvim_buf_is_valid(buf) then
+        vim.api.nvim_buf_delete(buf, { force = true })
+      end
+    end, 1000)
   end,
 })
 
